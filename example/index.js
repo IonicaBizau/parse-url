@@ -22,6 +22,7 @@ console.log(ParseUrl("http://domain.com/path/name?foo=bar&bar=42#some-hash"));
 //   , pathname: "/path/name"
 //   , hash: "some-hash"
 //   , search: "foo=bar&bar=42"
+//   , href: "http://domain.com/path/name?foo=bar&bar=42#some-hash"
 // }
 
 console.log(ParseUrl("git+ssh://git@host.xz/path/name.git"));
@@ -44,5 +45,5 @@ console.log(ParseUrl("git@github.com:IonicaBizau/git-stats.git"));
 //   , pathname: "/IonicaBizau/git-stats.git"
 //   , hash: ""
 //   , search: ""
-//   , href: "http://domain.com/path/name?foo=bar&bar=42#some-hash"
+//   , href: "git@github.com:IonicaBizau/git-stats.git"
 // }

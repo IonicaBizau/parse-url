@@ -38,6 +38,7 @@ console.log(ParseUrl("http://ionicabizau.net/blog"));
 //   , pathname: "/blog"
 //   , hash: ""
 //   , search: ""
+//   , href: "http://ionicabizau.net/blog"
 // }
 
 console.log(ParseUrl("http://domain.com/path/name?foo=bar&bar=42#some-hash"));
@@ -71,6 +72,7 @@ console.log(ParseUrl("git@github.com:IonicaBizau/git-stats.git"));
 //   , pathname: "/IonicaBizau/git-stats.git"
 //   , hash: ""
 //   , search: ""
+//   , href: "http://domain.com/path/name?foo=bar&bar=42#some-hash"
 // }
 
 ```
@@ -85,6 +87,14 @@ Parses the input url.
 
 #### Return
 - **Object** An object containing the following fields:
+ - `protocols` (Array): An array with the url protocols (usually it has one element).
+ - `port` (null|Number): The domain port.
+ - `resource` (String): The url domain (including subdomains).
+ - `user` (String): The authentication user (usually for ssh urls).
+ - `pathname` (String): The url pathname.
+ - `hash` (String): The url hash.
+ - `search` (String): The url querystring value.
+ - `href` (String): The input url.
 
 ## How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
