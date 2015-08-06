@@ -4,7 +4,8 @@
   "description": "An advanced url parser supporting git urls too.",
   "main": "lib/index.js",
   "directories": {
-    "example": "example"
+    "example": "example",
+    "test": "test"
   },
   "scripts": {
     "test": "mocha test"
@@ -25,5 +26,11 @@
   "bugs": {
     "url": "https://github.com/IonicaBizau/node-parse-url/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/node-parse-url"
+  "homepage": "https://github.com/IonicaBizau/node-parse-url",
+  "dependencies": {
+    "protocols": "^1.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  }
 }
