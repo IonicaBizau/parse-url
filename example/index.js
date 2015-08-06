@@ -10,6 +10,7 @@ console.log(ParseUrl("http://ionicabizau.net/blog"));
 //   , pathname: "/blog"
 //   , hash: ""
 //   , search: ""
+//   , href: "http://ionicabizau.net/blog"
 // }
 
 console.log(ParseUrl("http://domain.com/path/name?foo=bar&bar=42#some-hash"));
@@ -43,4 +44,5 @@ console.log(ParseUrl("git@github.com:IonicaBizau/git-stats.git"));
 //   , pathname: "/IonicaBizau/git-stats.git"
 //   , hash: ""
 //   , search: ""
+//   , href: "http://domain.com/path/name?foo=bar&bar=42#some-hash"
 // }

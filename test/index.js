@@ -68,6 +68,7 @@ const INPUTS = [
 
 INPUTS.forEach(function (c) {
     it("should support " + c[0], function (cb) {
+        c[1].href = c[0];
         Assert.deepEqual(ParseUrl(c[0]), c[1]);
         cb();
     });
