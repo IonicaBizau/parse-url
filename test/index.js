@@ -29,6 +29,18 @@ const INPUTS = [
         }
     ]
   , [
+        "http://domain.com/path/name#some-hash?foo=bar&bar=42"
+      , {
+            protocols: ["http"]
+          , port: null
+          , resource: "domain.com"
+          , user: ""
+          , pathname: "/path/name"
+          , hash: "some-hash?foo=bar&bar=42"
+          , search: ""
+        }
+    ]
+  , [
         "git+ssh://git@host.xz/path/name.git"
       , {
             protocols: ["git", "ssh"]
