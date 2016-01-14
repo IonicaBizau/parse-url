@@ -1,6 +1,6 @@
-# parse-url [![Support this project][donate-now]][paypal-donations]
+# parse-url [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Travis](https://img.shields.io/travis/IonicaBizau/node-parse-url.svg)](https://travis-ci.org/IonicaBizau/node-parse-url/) [![Version](https://img.shields.io/npm/v/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Downloads](https://img.shields.io/npm/dt/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
-An advanced url parser supporting git urls too.
+> An advanced url parser supporting git urls too.
 
 ## Installation
 
@@ -88,6 +88,8 @@ Have an idea? Found a bug? See [how to contribute][contributing].
 If you are using this library in one of your projects, add it in this list. :sparkles:
 
  - [`git-up`](https://github.com/IonicaBizau/node-git-up)
+
+ - [`hubot-will-it-connect`](https://github.com/gambtho/hubot-will-it-connect#readme) by gambtho
 
  - [`microbe.js`](https://github.com/Aweary/microbe.js) by Brandon Dail
 
