@@ -1,6 +1,6 @@
 {
   "name": "parse-url",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "An advanced url parser supporting git urls too.",
   "main": "lib/index.js",
   "directories": {
@@ -8,11 +8,11 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "node test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IonicaBizau/node-parse-url.git"
+    "url": "https://github.com/IonicaBizau/parse-url.git"
   },
   "keywords": [
     "parse",
@@ -24,13 +24,14 @@
   "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/IonicaBizau/node-parse-url/issues"
+    "url": "https://github.com/IonicaBizau/parse-url/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/node-parse-url",
+  "homepage": "https://github.com/IonicaBizau/parse-url",
   "dependencies": {
-    "protocols": "^1.1.0"
+    "is-ssh": "^1.2.1",
+    "protocols": "^1.4.0"
   },
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "tester": "^1.3.1"
   }
 }

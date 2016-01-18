@@ -1,13 +1,14 @@
 // Dependencies
-var ParseUrl = require("../lib")
-  , Assert = require("assert")
-  ;
+const parseUrl = require("../lib")
+    , tester = require("tester")
+    ;
 
 const INPUTS = [
     [
         "http://ionicabizau.net/blog"
       , {
             protocols: [ "http" ]
+          , protocol: "http"
           , port: null
           , resource: "ionicabizau.net"
           , user: ""
@@ -20,6 +21,7 @@ const INPUTS = [
         "http://domain.com/path/name?foo=bar&bar=42#some-hash"
       , {
             protocols: ["http"]
+          , protocol: "http"
           , port: null
           , resource: "domain.com"
           , user: ""
@@ -32,6 +34,7 @@ const INPUTS = [
         "http://domain.com/path/name#some-hash?foo=bar&bar=42"
       , {
             protocols: ["http"]
+          , protocol: "http"
           , port: null
           , resource: "domain.com"
           , user: ""
@@ -44,6 +47,7 @@ const INPUTS = [
         "git+ssh://git@host.xz/path/name.git"
       , {
             protocols: ["git", "ssh"]
+          , protocol: "git"
           , port: null
           , resource: "host.xz"
           , user: "git"
@@ -56,6 +60,7 @@ const INPUTS = [
         "git@github.com:IonicaBizau/git-stats.git"
       , {
             protocols: []
+          , protocol: "ssh"
           , port: null
           , resource: "github.com"
           , user: "git"
@@ -66,10 +71,11 @@ const INPUTS = [
     ]
 ];
 
-INPUTS.forEach(function (c) {
-    it("should support " + c[0], function (cb) {
-        c[1].href = c[0];
-        Assert.deepEqual(ParseUrl(c[0]), c[1]);
-        cb();
+tester.describe("check urls", test => {
+    INPUTS.forEach(function (c) {
+        test.should("support " + c[0], () => {
+            c[1].href = c[0];
+            test.expect(parseUrl(c[0])).toEqual(c[1]);
+        });
     });
 });
