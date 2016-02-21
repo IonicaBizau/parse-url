@@ -93,6 +93,8 @@ If you are using this library in one of your projects, add it in this list. :spa
 
  - [`tumblr-text`](https://npmjs.com/package/tumblr-text) by cobaimelan
 
+ - [`url-local`](https://github.com/IonicaBizau/url-local#readme)
+
 ## License
 
 [MIT][license] © [Ionică Bizău][website]
