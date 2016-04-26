@@ -1,14 +1,18 @@
+
 # parse-url [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Travis](https://img.shields.io/travis/IonicaBizau/parse-url.svg)](https://travis-ci.org/IonicaBizau/parse-url/) [![Version](https://img.shields.io/npm/v/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Downloads](https://img.shields.io/npm/dt/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
 > An advanced url parser supporting git urls too.
 
-## Installation
+## :cloud: Installation
 
 ```sh
 $ npm i --save parse-url
 ```
 
-## Example
+
+## :clipboard: Example
+
+
 
 ```js
 // Dependencies
@@ -59,7 +63,8 @@ console.log(parseUrl("git@github.com:IonicaBizau/git-stats.git"));
 //   href: 'git@github.com:IonicaBizau/git-stats.git' }
 ```
 
-## Documentation
+## :memo: Documentation
+
 
 ### `parseUrl(url)`
 Parses the input url.
@@ -79,23 +84,24 @@ Parses the input url.
  - `search` (String): The url querystring value.
  - `href` (String): The input url.
 
-## How to contribute
+
+
+## :yum: How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
-## Where is this library used?
+## :dizzy: Where is this library used?
 If you are using this library in one of your projects, add it in this list. :sparkles:
 
- - [`git-up`](https://github.com/IonicaBizau/node-git-up)
 
- - [`hubot-will-it-connect`](https://github.com/gambtho/hubot-will-it-connect#readme) by gambtho
+ - [`deploy-versioning`](https://npmjs.com/package/deploy-versioning)—Deploy your code keeping older versions.
+ - [`git-up`](https://github.com/IonicaBizau/git-up)—A low level git url parser.
+ - [`hubot-will-it-connect`](https://github.com/gambtho/hubot-will-it-connect#readme) (by gambtho)—Connects hubot with willitconnect, to validate CF's ability to connect to external resources
+ - [`lien`](https://github.com/LienJS/Lien)—Another lightweight NodeJS framework. Lien is the link between request and response objects.
+ - [`microbe.js`](https://github.com/Aweary/microbe.js) (by Brandon Dail)—A small Node.js framework for simple routing
+ - [`tumblr-text`](https://npmjs.com/package/tumblr-text) (by cobaimelan)—[![Build Status](http://img.shields.io/travis/ayhankuru/tumblr-text.svg?style=flat-square)](https://travis-ci.org/ayhankuru/tumblr-text) [![Build Status](https://img.shields.io/david/ayhankuru/tumblr-text.svg?style=flat-square)](https://david-dm.org/ayhan
+ - [`url-local`](https://github.com/IonicaBizau/url-local#readme)—Checks if a given url is a local url or not.
 
- - [`microbe.js`](https://github.com/Aweary/microbe.js) by Brandon Dail
-
- - [`tumblr-text`](https://npmjs.com/package/tumblr-text) by cobaimelan
-
- - [`url-local`](https://github.com/IonicaBizau/url-local#readme)
-
-## License
+## :scroll: License
 
 [MIT][license] © [Ionică Bizău][website]
 
