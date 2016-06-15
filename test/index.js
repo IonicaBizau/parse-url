@@ -18,6 +18,19 @@ const INPUTS = [
         }
     ]
   , [
+        "//ionicabizau.net/foo.js"
+      , {
+            protocols: []
+          , protocol: ""
+          , port: null
+          , resource: "ionicabizau.net"
+          , user: ""
+          , pathname: "/foo.js"
+          , hash: ""
+          , search: ""
+        }
+    ]
+  , [
         "http://domain.com/path/name?foo=bar&bar=42#some-hash"
       , {
             protocols: ["http"]
