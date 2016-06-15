@@ -98,7 +98,7 @@ If you are using this library in one of your projects, add it in this list. :spa
  - [`deploy-versioning`](https://npmjs.com/package/deploy-versioning)—Deploy your code keeping older versions.
  - [`git-up`](https://github.com/IonicaBizau/git-up)—A low level git url parser.
  - [`hubot-will-it-connect`](https://github.com/gambtho/hubot-will-it-connect#readme) (by gambtho)—Connects hubot with willitconnect, to validate CF's ability to connect to external resources
- - [`kakapo`](https://github.com/devlucky/Kakapo.js#readme) (by devlucky)—Next generation mocking library in Javascript
+ - [`kakapo`](https://github.com/devlucky/Kakapo.js#readme) (by devlucky)—Next generation mocking framework in Javascript
  - [`lien`](https://github.com/LienJS/Lien)—Another lightweight NodeJS framework. Lien is the link between request and response objects.
  - [`microbe.js`](https://github.com/Aweary/microbe.js) (by Brandon Dail)—A small Node.js framework for simple routing
  - [`tumblr-text`](https://npmjs.com/package/tumblr-text) (by cobaimelan)—[![Build Status](http://img.shields.io/travis/ayhankuru/tumblr-text.svg?style=flat-square)](https://travis-ci.org/ayhankuru/tumblr-text) [![Build Status](https://img.shields.io/david/ayhankuru/tumblr-text.svg?style=flat-square)](https://david-dm.org/ayhan
