@@ -1,7 +1,7 @@
 
 # parse-url
 
- [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![AMA](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Travis](https://img.shields.io/travis/IonicaBizau/parse-url.svg)](https://travis-ci.org/IonicaBizau/parse-url/) [![Version](https://img.shields.io/npm/v/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Downloads](https://img.shields.io/npm/dt/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
+ [![Patreon](https://img.shields.io/badge/Support%20me%20on-Patreon-%23e6461a.svg)][paypal-donations] [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![AMA](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Travis](https://img.shields.io/travis/IonicaBizau/parse-url.svg)](https://travis-ci.org/IonicaBizau/parse-url/) [![Version](https://img.shields.io/npm/v/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Downloads](https://img.shields.io/npm/dt/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
 > An advanced url parser supporting git urls too.
 
@@ -91,6 +91,15 @@ Parses the input url.
 ## :yum: How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
+## :moneybag: Donations
+
+Another way to support the development of my open-source modules is
+to [set up a recurring donation, via Patreon][patreon]. :rocket:
+
+[PayPal donations][paypal-donations] are appreciated too! Each dollar helps.
+
+Thanks! :heart:
+
 ## :dizzy: Where is this library used?
 If you are using this library in one of your projects, add it in this list. :sparkles:
 
@@ -101,6 +110,7 @@ If you are using this library in one of your projects, add it in this list. :spa
  - [`kakapo`](https://github.com/devlucky/Kakapo.js#readme) (by devlucky)—Next generation mocking framework in Javascript
  - [`lien`](https://github.com/LienJS/Lien)—Another lightweight NodeJS framework. Lien is the link between request and response objects.
  - [`microbe.js`](https://github.com/Aweary/microbe.js) (by Brandon Dail)—A small Node.js framework for simple routing
+ - [`native-zip`](https://npmjs.com/package/native-zip) (by kardel)—app内H5应用本地化打包工具，支持增量打包，全量打包
  - [`tumblr-text`](https://npmjs.com/package/tumblr-text) (by cobaimelan)—[![Build Status](http://img.shields.io/travis/ayhankuru/tumblr-text.svg?style=flat-square)](https://travis-ci.org/ayhankuru/tumblr-text) [![Build Status](https://img.shields.io/david/ayhankuru/tumblr-text.svg?style=flat-square)](https://david-dm.org/ayhan
  - [`url-local`](https://github.com/IonicaBizau/url-local#readme)—Checks if a given url is a local url or not.
 
@@ -108,6 +118,7 @@ If you are using this library in one of your projects, add it in this list. :spa
 
 [MIT][license] © [Ionică Bizău][website]
 
+[patreon]: https://www.patreon.com/ionicabizau
 [paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RVXDDLKKLQRJW
 [donate-now]: http://i.imgur.com/6cMbHOC.png
 
