@@ -82,6 +82,58 @@ const INPUTS = [
           , search: ""
         }
     ]
+	, [
+        "/path/to/file.png"
+      , {
+            protocols: []
+          , protocol: "file"
+          , port: null
+          , resource: ""
+          , user: ""
+          , pathname: "/path/to/file.png"
+          , hash: ""
+          , search: ""
+        }
+    ]
+	, [
+        "./path/to/file.png"
+      , {
+            protocols: []
+          , protocol: "file"
+          , port: null
+          , resource: ""
+          , user: ""
+          , pathname: "/path/to/file.png"
+          , hash: ""
+          , search: ""
+        }
+    ]
+	, [
+        "./.path/to/file.png"
+      , {
+            protocols: []
+          , protocol: "file"
+          , port: null
+          , resource: ""
+          , user: ""
+          , pathname: "/.path/to/file.png"
+          , hash: ""
+          , search: ""
+        }
+    ]
+	, [
+        ".path/to/file.png"
+      , {
+            protocols: []
+          , protocol: "file"
+          , port: null
+          , resource: ""
+          , user: ""
+          , pathname: ".path/to/file.png"
+          , hash: ""
+          , search: ""
+        }
+    ]
 ];
 
 tester.describe("check urls", test => {
