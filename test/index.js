@@ -82,7 +82,7 @@ const INPUTS = [
           , search: ""
         }
     ]
-	, [
+  , [
         "/path/to/file.png"
       , {
             protocols: []
@@ -95,7 +95,7 @@ const INPUTS = [
           , search: ""
         }
     ]
-	, [
+  , [
         "./path/to/file.png"
       , {
             protocols: []
@@ -108,7 +108,7 @@ const INPUTS = [
           , search: ""
         }
     ]
-	, [
+  , [
         "./.path/to/file.png"
       , {
             protocols: []
@@ -121,7 +121,7 @@ const INPUTS = [
           , search: ""
         }
     ]
-	, [
+  , [
         ".path/to/file.png"
       , {
             protocols: []
