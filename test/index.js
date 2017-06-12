@@ -103,7 +103,7 @@ const INPUTS = [
           , port: null
           , resource: ""
           , user: ""
-          , pathname: "./path/to/file.png"
+          , pathname: "path/to/file.png"
           , hash: ""
           , search: ""
         }
@@ -116,7 +116,7 @@ const INPUTS = [
           , port: null
           , resource: ""
           , user: ""
-          , pathname: "./.path/to/file.png"
+          , pathname: ".path/to/file.png"
           , hash: ""
           , search: ""
         }
