@@ -1,7 +1,7 @@
 // Dependencies
-const parseUrl = require("../lib");
+const parseUrl = require("../lib")
 
-console.log(parseUrl("http://ionicabizau.net/blog"));
+console.log(parseUrl("http://ionicabizau.net/blog"))
 // { protocols: [ 'http' ],
 //   protocol: 'http',
 //   port: null,
@@ -12,7 +12,7 @@ console.log(parseUrl("http://ionicabizau.net/blog"));
 //   search: '',
 //   href: 'http://ionicabizau.net/blog' }
 
-console.log(parseUrl("http://domain.com/path/name?foo=bar&bar=42#some-hash"));
+console.log(parseUrl("http://domain.com/path/name?foo=bar&bar=42#some-hash"))
 // { protocols: [ 'http' ],
 //   protocol: 'http',
 //   port: null,
@@ -24,7 +24,7 @@ console.log(parseUrl("http://domain.com/path/name?foo=bar&bar=42#some-hash"));
 //   href: 'http://domain.com/path/name?foo=bar&bar=42#some-hash' }
 
 // If you want to parse fancy Git urls, turn off the automatic url normalization
-console.log(parseUrl("git+ssh://git@host.xz/path/name.git", false));
+console.log(parseUrl("git+ssh://git@host.xz/path/name.git", false))
 // { protocols: [ 'git', 'ssh' ],
 //   protocol: 'git',
 //   port: null,
@@ -35,7 +35,7 @@ console.log(parseUrl("git+ssh://git@host.xz/path/name.git", false));
 //   search: '',
 //   href: 'git+ssh://git@host.xz/path/name.git' }
 
-console.log(parseUrl("git@github.com:IonicaBizau/git-stats.git", false));
+console.log(parseUrl("git@github.com:IonicaBizau/git-stats.git", false))
 // { protocols: [],
 //   protocol: 'ssh',
 //   port: null,
