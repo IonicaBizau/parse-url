@@ -45,5 +45,10 @@
     "menu/",
     "cli.js",
     "index.js"
-  ]
+  ],
+  "blah": {
+      "description": [
+          "For low-level path parsing, check out [`parse-path`](https://github.com/IonicaBizau/parse-path). This very module is designed to parse urls. By default the urls are normalized."
+      ]
+  }
 }

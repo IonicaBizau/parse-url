@@ -23,7 +23,8 @@ console.log(parseUrl("http://domain.com/path/name?foo=bar&bar=42#some-hash"));
 //   search: 'foo=bar&bar=42',
 //   href: 'http://domain.com/path/name?foo=bar&bar=42#some-hash' }
 
-console.log(parseUrl("git+ssh://git@host.xz/path/name.git"));
+// If you want to parse fancy Git urls, turn off the automatic url normalization
+console.log(parseUrl("git+ssh://git@host.xz/path/name.git", false));
 // { protocols: [ 'git', 'ssh' ],
 //   protocol: 'git',
 //   port: null,
@@ -34,7 +35,7 @@ console.log(parseUrl("git+ssh://git@host.xz/path/name.git"));
 //   search: '',
 //   href: 'git+ssh://git@host.xz/path/name.git' }
 
-console.log(parseUrl("git@github.com:IonicaBizau/git-stats.git"));
+console.log(parseUrl("git@github.com:IonicaBizau/git-stats.git", false));
 // { protocols: [],
 //   protocol: 'ssh',
 //   port: null,

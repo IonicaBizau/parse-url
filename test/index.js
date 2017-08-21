@@ -1,6 +1,8 @@
 // Dependencies
 const parseUrl = require("../lib")
     , tester = require("tester")
+    , normalizeUrl = require("normalize-url")
+    , qs = require("querystring")
     ;
 
 const INPUTS = [
@@ -20,8 +22,8 @@ const INPUTS = [
   , [
         "//ionicabizau.net/foo.js"
       , {
-            protocols: []
-          , protocol: ""
+            protocols: ["http"]
+          , protocol: "http"
           , port: null
           , resource: "ionicabizau.net"
           , user: ""
@@ -31,7 +33,7 @@ const INPUTS = [
         }
     ]
   , [
-        "http://domain.com/path/name?foo=bar&bar=42#some-hash"
+        "http://domain.com/path/name#some-hash?foo=bar"
       , {
             protocols: ["http"]
           , protocol: "http"
@@ -39,25 +41,12 @@ const INPUTS = [
           , resource: "domain.com"
           , user: ""
           , pathname: "/path/name"
-          , hash: "some-hash"
-          , search: "foo=bar&bar=42"
-        }
-    ]
-  , [
-        "http://domain.com/path/name#some-hash?foo=bar&bar=42"
-      , {
-            protocols: ["http"]
-          , protocol: "http"
-          , port: null
-          , resource: "domain.com"
-          , user: ""
-          , pathname: "/path/name"
-          , hash: "some-hash?foo=bar&bar=42"
+          , hash: "some-hash?foo=bar"
           , search: ""
         }
     ]
   , [
-        "git+ssh://git@host.xz/path/name.git"
+        ["git+ssh://git@host.xz/path/name.git", false]
       , {
             protocols: ["git", "ssh"]
           , protocol: "git"
@@ -70,7 +59,7 @@ const INPUTS = [
         }
     ]
   , [
-        "git@github.com:IonicaBizau/git-stats.git"
+        ["git@github.com:IonicaBizau/git-stats.git", false]
       , {
             protocols: []
           , protocol: "ssh"
@@ -82,78 +71,41 @@ const INPUTS = [
           , search: ""
         }
     ]
-  , [
-        "/path/to/file.png"
-      , {
-            protocols: []
-          , protocol: "file"
-          , port: null
-          , resource: ""
-          , user: ""
-          , pathname: "/path/to/file.png"
-          , hash: ""
-          , search: ""
-        }
-    ]
-  , [
-        "./path/to/file.png"
-      , {
-            protocols: []
-          , protocol: "file"
-          , port: null
-          , resource: ""
-          , user: ""
-          , pathname: "path/to/file.png"
-          , hash: ""
-          , search: ""
-        }
-    ]
-  , [
-        "./.path/to/file.png"
-      , {
-            protocols: []
-          , protocol: "file"
-          , port: null
-          , resource: ""
-          , user: ""
-          , pathname: ".path/to/file.png"
-          , hash: ""
-          , search: ""
-        }
-    ]
-  , [
-        ".path/to/file.png"
-      , {
-            protocols: []
-          , protocol: "file"
-          , port: null
-          , resource: ""
-          , user: ""
-          , pathname: ".path/to/file.png"
-          , hash: ""
-          , search: ""
-        }
-    ]
-  , [
-        "path/to/file.png"
-      , {
-            protocols: []
-          , protocol: "file"
-          , port: null
-          , resource: ""
-          , user: ""
-          , pathname: "path/to/file.png"
-          , hash: ""
-          , search: ""
-        }
-    ]
 ];
 
 tester.describe("check urls", test => {
     INPUTS.forEach(function (c) {
-        test.should("support " + c[0], () => {
-            c[1].href = c[0];
-            test.expect(parseUrl(c[0])).toEqual(c[1]);
+        let url = Array.isArray(c[0]) ? c[0][0] : c[0]
+        test.should("support " + url, () => {
+            const res = parseUrl(url, c[0][1] !== false);
+            if (c[0][1] !== false) {
+                url = normalizeUrl(url, {
+                    stripFragment: false
+                })
+            }
+            c[1].query = qs.parse(c[1].search)
+            c[1].href = url
+            test.expect(res).toEqual(c[1]);
         });
     });
+
+    test.should("throw if the url is local path", () => {
+        test.expect(() => {
+            parseUrl("./foo/bar.js", false)
+        }).toThrow(/local path/)
+        test.expect(() => {
+            parseUrl("foo", false)
+        }).toThrow(/local path/)
+        test.expect(() => {
+            parseUrl("./.foo", false)
+        }).toThrow(/local path/)
+    })
+
+    test.should("throw if url is empty", () => {
+        test.expect(() => {
+            parseUrl("")
+        }).toThrow(/invalid url/i)
+    })
 });
+
+
