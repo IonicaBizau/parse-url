@@ -89,23 +89,9 @@ tester.describe("check urls", test => {
         });
     });
 
-    test.should("throw if the url is local path", () => {
-        test.expect(() => {
-            parseUrl("./foo/bar.js", false)
-        }).toThrow(/local path/)
-        test.expect(() => {
-            parseUrl("foo", false)
-        }).toThrow(/local path/)
-        test.expect(() => {
-            parseUrl("./.foo", false)
-        }).toThrow(/local path/)
-    })
-
     test.should("throw if url is empty", () => {
         test.expect(() => {
             parseUrl("")
         }).toThrow(/invalid url/i)
     })
 });
-
-
