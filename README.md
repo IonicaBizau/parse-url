@@ -12,7 +12,11 @@ For low-level path parsing, check out [`parse-path`](https://github.com/IonicaBi
 ## :cloud: Installation
 
 ```sh
-$ npm i --save parse-url
+# Using npm
+npm install --save parse-url
+
+# Using yarn
+yarn add parse-url
 ```
 
 
@@ -78,7 +82,9 @@ There are few ways to get help:
 
  1. Please [post questions on Stack Overflow](https://stackoverflow.com/questions/ask). You can open issues with questions, as long you add a link to your Stack Overflow question.
  2. For bug reports and feature requests, open issues. :bug:
+
  3. For direct and quick help, you can [use Codementor](https://www.codementor.io/johnnyb). :rocket:
+
 
 
 ## :memo: Documentation
@@ -92,9 +98,11 @@ Parses the input url.
 #### Params
 
 - **String** `url`: The input url.
-- **Boolean|Object** `normalize`: Wheter to normalize the url or not.                         Default is `true`. If `false`, the url will
-                        not be normalized. If an object, it will be the
+- **Boolean|Object** `normalize`: Wheter to normalize the url or not.                         Default is `false`. If `true`, the url will
+                        be normalized. If an object, it will be the
                         options object sent to [`normalize-url`](https://github.com/sindresorhus/normalize-url).
+
+                        For SSH urls, normalize won't work.
 
 #### Return
 - **Object** An object containing the following fields:
@@ -117,7 +125,7 @@ Have an idea? Found a bug? See [how to contribute][contributing].
 
 ## :sparkling_heart: Support my projects
 
-I open-source almost everything I can, and I try to reply everyone needing help using these projects. Obviously,
+I open-source almost everything I can, and I try to reply to everyone needing help using these projects. Obviously,
 this takes time. You can integrate and use these projects in your applications *for free*! You can even change the source code and redistribute (even resell it).
 
 However, if you get some profit from this or just want to encourage me to continue creating stuff, there are few ways you can do it:
@@ -141,19 +149,27 @@ If you are using this library in one of your projects, add it in this list. :spa
  - [`deploy-versioning`](https://github.com/educastellano/deploy-versioning#readme)—Deploy your code keeping older versions.
  - [`eval-spider`](https://github.com/evalsocket/eval-spider/blob/master/README.md) (by evalsocket)—crawle website
  - [`fuge-runner`](https://github.com/apparatus/fuge-runner#readme) (by Peter Elger)—[![npm version][npm-badge]][npm-url] [![npm downloads][npm-downloads-badge]][npm-url] [![Build Status][travis-badge]][travis-url]
+ - [`get-tarball-cli`](https://npmjs.com/package/get-tarball-cli) (by Vincent G. Cabrera)—Download tarballs from npm using a package-lock.json file
  - [`git-up`](https://github.com/IonicaBizau/git-up)—A low level git url parser.
  - [`heroku-wp-environment-sync`](https://github.com/taneliheikkinen/heroku-wp-environment-sync#readme) (by Taneli Heikkinen)—A heroku plugin to sync different wordpress environments.
  - [`hubot-will-it-connect`](https://github.com/gambtho/hubot-will-it-connect#readme) (by gambtho)—Connects hubot with willitconnect, to validate CF's ability to connect to external resources
  - [`kakapo`](https://github.com/devlucky/Kakapo.js#readme) (by devlucky)—Next generation mocking framework in Javascript
  - [`lien`](https://github.com/LienJS/Lien)—An easy to use web framework for Node.js.
  - [`microbe.js`](https://github.com/Aweary/microbe.js) (by Brandon Dail)—A small Node.js framework for simple routing
+ - [`miguelcostero-ng2-toasty`](https://github.com/akserg/ng2-toasty) (by Sergey Akopkokhyants)—Angular2 Toasty component shows growl-style alerts and messages for your web app
  - [`native-zip`](https://npmjs.com/package/native-zip) (by kardel)—app内H5应用本地化打包工具，支持增量打包，全量打包
+ - [`ndla-source-map-resolver`](https://npmjs.com/package/ndla-source-map-resolver) (by ndla@knowit.no)—Source map resolver for errors logged via ndla-error-reporter.
  - [`normalize-ssh`](https://github.com/zkochan/normalize-ssh#readme) (by Zoltan Kochan)—Normalize a SSH URL
  - [`parse-db-uri`](https://github.com/IonicaBizau/parse-db-uri#readme)—Parse database URIs
- - [`parse-dburi`](https://github.com/dgoguerra/parse-dburi) (by Diego Guerra)—Parse and stringify a DB URI
+ - [`ssh-host-manager`](https://github.com/shyim/ssh-session-manager#readme) (by Shyim)—Simple CLI to manage your ssh shortcuts
  - [`ts-scraper`](https://github.com/pskd73/ts-scraper#readme) (by Pramod Kumar)—Scarp links present in the website recursively
  - [`tumblr-text`](https://npmjs.com/package/tumblr-text) (by cobaimelan)—[![Build Status](http://img.shields.io/travis/ayhankuru/tumblr-text.svg?style=flat-square)](https://travis-ci.org/ayhankuru/tumblr-text) [![Build Status](https://img.shields.io/david/ayhankuru/tumblr-text.svg?style=flat-square)](https://david-dm.org/ayhan
  - [`url-local`](https://github.com/IonicaBizau/url-local#readme)—Checks if a given url is a local url or not.
+ - [`vrt-cli`](https://github.com/cesarferreira/vrt-cli#readme) (by Viktor Bezdek)—> Visual regression testing helper toolkit.
+ - [`wander-cli`](https://github.com/dividedbyzeroco/wander-js#readme) (by Jake Josol)—Database Migrations for Modern Apps
+ - [`warp-api`](https://github.com/dividedbyzeroco/warp-api#readme) (by Warp)—Warp API
+ - [`warp-server`](https://github.com/dividedbyzeroco/warp-server#readme) (by Warp)—Warp Server
+ - [`xbuilder-forms`](https://github.com/stewartmegaw/xBuilderForms#readme) (by Stewart Megaw)—Quickly add beautiful and powerful forms to your application
 
 ## :scroll: License
 
