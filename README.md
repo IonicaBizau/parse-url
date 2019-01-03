@@ -3,7 +3,9 @@
 
 # parse-url
 
- [![Support me on Patreon][badge_patreon]][patreon] [![Buy me a book][badge_amazon]][amazon] [![PayPal][badge_paypal_donate]][paypal-donations] [![Ask me anything](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Travis](https://img.shields.io/travis/IonicaBizau/parse-url.svg)](https://travis-ci.org/IonicaBizau/parse-url/) [![Version](https://img.shields.io/npm/v/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Downloads](https://img.shields.io/npm/dt/parse-url.svg)](https://www.npmjs.com/package/parse-url)
+ [![Support me on Patreon][badge_patreon]][patreon] [![Buy me a book][badge_amazon]][amazon] [![PayPal][badge_paypal_donate]][paypal-donations] [![Ask me anything](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Travis](https://img.shields.io/travis/IonicaBizau/parse-url.svg)](https://travis-ci.org/IonicaBizau/parse-url/) [![Version](https://img.shields.io/npm/v/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Downloads](https://img.shields.io/npm/dt/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
+
+<a href="https://www.buymeacoffee.com/H96WwChMy" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
 
 > An advanced url parser supporting git urls too.
 
@@ -130,6 +132,7 @@ this takes time. You can integrate and use these projects in your applications *
 
 However, if you get some profit from this or just want to encourage me to continue creating stuff, there are few ways you can do it:
 
+
  - Starring and sharing the projects you like :rocket:
  - [![Buy me a book][badge_amazon]][amazon]—I love books! I will remember you after years if you buy me one. :grin: :book:
  - [![PayPal][badge_paypal]][paypal-donations]—You can make one-time donations via PayPal. I'll probably buy a ~~coffee~~ tea. :tea:
@@ -137,6 +140,7 @@ However, if you get some profit from this or just want to encourage me to contin
  - **Bitcoin**—You can send me bitcoins at this address (or scanning the code below): `1P9BRsmazNQcuyTxEqveUsnf5CERdq35V6`
 
     ![](https://i.imgur.com/z6OQI95.png)
+
 
 Thanks! :heart:
 
@@ -152,6 +156,7 @@ If you are using this library in one of your projects, add it in this list. :spa
  - [`get-tarball-cli`](https://npmjs.com/package/get-tarball-cli) (by Vincent G. Cabrera)—Download tarballs from npm using a package-lock.json file
  - [`git-up`](https://github.com/IonicaBizau/git-up)—A low level git url parser.
  - [`heroku-wp-environment-sync`](https://github.com/taneliheikkinen/heroku-wp-environment-sync#readme) (by Taneli Heikkinen)—A heroku plugin to sync different wordpress environments.
+ - [`hologit`](https://github.com/EmergencePlatform/hologit#readme) (by Chris Alfano)—Hologit automates the projection of layered composite file trees based on flat, declarative plans
  - [`hubot-will-it-connect`](https://github.com/gambtho/hubot-will-it-connect#readme) (by gambtho)—Connects hubot with willitconnect, to validate CF's ability to connect to external resources
  - [`kakapo`](https://github.com/devlucky/Kakapo.js#readme) (by devlucky)—Next generation mocking framework in Javascript
  - [`lien`](https://github.com/LienJS/Lien)—An easy to use web framework for Node.js.
@@ -161,13 +166,13 @@ If you are using this library in one of your projects, add it in this list. :spa
  - [`ndla-source-map-resolver`](https://npmjs.com/package/ndla-source-map-resolver) (by ndla@knowit.no)—Source map resolver for errors logged via ndla-error-reporter.
  - [`normalize-ssh`](https://github.com/zkochan/normalize-ssh#readme) (by Zoltan Kochan)—Normalize a SSH URL
  - [`parse-db-uri`](https://github.com/IonicaBizau/parse-db-uri#readme)—Parse database URIs
+ - [`robots-agent`](https://github.com/gajus/robots-agent#readme) (by Gajus Kuizinas)—robots.txt agent with cache.
  - [`ssh-host-manager`](https://github.com/shyim/ssh-session-manager#readme) (by Shyim)—Simple CLI to manage your ssh shortcuts
  - [`ts-scraper`](https://github.com/pskd73/ts-scraper#readme) (by Pramod Kumar)—Scarp links present in the website recursively
  - [`tumblr-text`](https://npmjs.com/package/tumblr-text) (by cobaimelan)—[![Build Status](http://img.shields.io/travis/ayhankuru/tumblr-text.svg?style=flat-square)](https://travis-ci.org/ayhankuru/tumblr-text) [![Build Status](https://img.shields.io/david/ayhankuru/tumblr-text.svg?style=flat-square)](https://david-dm.org/ayhan
  - [`url-local`](https://github.com/IonicaBizau/url-local#readme)—Checks if a given url is a local url or not.
  - [`vrt-cli`](https://github.com/cesarferreira/vrt-cli#readme) (by Viktor Bezdek)—> Visual regression testing helper toolkit.
  - [`wander-cli`](https://github.com/dividedbyzeroco/wander-js#readme) (by Jake Josol)—Database Migrations for Modern Apps
- - [`warp-api`](https://github.com/dividedbyzeroco/warp-api#readme) (by Warp)—Warp API
  - [`warp-server`](https://github.com/dividedbyzeroco/warp-server#readme) (by Warp)—Warp Server
  - [`xbuilder-forms`](https://github.com/stewartmegaw/xBuilderForms#readme) (by Stewart Megaw)—Quickly add beautiful and powerful forms to your application
 
@@ -175,14 +180,15 @@ If you are using this library in one of your projects, add it in this list. :spa
 
 [MIT][license] © [Ionică Bizău][website]
 
-[badge_patreon]: http://ionicabizau.github.io/badges/patreon.svg
-[badge_amazon]: http://ionicabizau.github.io/badges/amazon.svg
-[badge_paypal]: http://ionicabizau.github.io/badges/paypal.svg
-[badge_paypal_donate]: http://ionicabizau.github.io/badges/paypal_donate.svg
+
+[badge_patreon]: https://ionicabizau.github.io/badges/patreon.svg
+[badge_amazon]: https://ionicabizau.github.io/badges/amazon.svg
+[badge_paypal]: https://ionicabizau.github.io/badges/paypal.svg
+[badge_paypal_donate]: https://ionicabizau.github.io/badges/paypal_donate.svg
+
 [patreon]: https://www.patreon.com/ionicabizau
 [amazon]: http://amzn.eu/hRo9sIZ
 [paypal-donations]: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RVXDDLKKLQRJW
-[donate-now]: http://i.imgur.com/6cMbHOC.png
 
 [license]: http://showalicense.com/?fullname=Ionic%C4%83%20Biz%C4%83u%20%3Cbizauionica%40gmail.com%3E%20(https%3A%2F%2Fionicabizau.net)&year=2015#license-mit
 [website]: https://ionicabizau.net
