@@ -80,7 +80,7 @@ tester.describe("check urls", test => {
             const res = parseUrl(url, c[0][1] !== false);
             if (c[0][1] !== false) {
                 url = normalizeUrl(url, {
-                    stripFragment: false
+                    stripHash: false
                 })
             }
             c[1].query = qs.parse(c[1].search)
