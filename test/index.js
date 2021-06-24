@@ -71,6 +71,19 @@ const INPUTS = [
           , search: ""
         }
     ]
+  , [
+        ["http://ionicabizau.net/with-true-normalize", true]
+      , {
+            protocols: [ "http" ]
+          , protocol: "http"
+          , port: null
+          , resource: "ionicabizau.net"
+          , user: ""
+          , pathname: "/with-true-normalize"
+          , hash: ""
+          , search: ""
+        }
+    ]
 ];
 
 tester.describe("check urls", test => {
