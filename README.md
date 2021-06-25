@@ -296,10 +296,12 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `birken-react-native-community-image-editor`
  - `native-kakao-login`
  - `react-native-modal-progress-bar`
+ - `cv-app-payment-adyen`
+ - `react-native-flyy`
+ - `react-native-dsphoto-module`
  - `@hawkingnetwork/react-native-tab-view`
  - `miguelcostero-ng2-toasty`
  - `vue-cli-plugin-ut-builder`
- - `cv-app-payment-adyen`
  - `drowl-base-theme-iconset`
  - `gitlab-backup-util-harduino`
  - `loast`
