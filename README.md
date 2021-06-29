@@ -292,22 +292,22 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `cli-live-tutorial`
  - `@buganto/client`
  - `@datalogic/react-native-datalogic-module`
- - `@ndla/source-map-resolver`
  - `birken-react-native-community-image-editor`
  - `native-kakao-login`
  - `react-native-modal-progress-bar`
- - `cv-app-payment-adyen`
- - `react-native-flyy`
- - `react-native-dsphoto-module`
  - `@hawkingnetwork/react-native-tab-view`
  - `miguelcostero-ng2-toasty`
  - `vue-cli-plugin-ut-builder`
+ - `cv-app-payment-adyen`
+ - `react-native-flyy`
  - `drowl-base-theme-iconset`
  - `gitlab-backup-util-harduino`
  - `loast`
  - `rn-custom-tabview`
  - `homebridge-pushcutter`
  - `soajs.repositories`
+ - `@ntt_app/react-native-custom-notification`
+ - `@ndla/source-map-resolver`
 
 
 
