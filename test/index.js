@@ -1,9 +1,8 @@
 // Dependencies
-const parseUrl = require("../lib")
-    , tester = require("tester")
-    , normalizeUrl = require("normalize-url")
-    , qs = require("querystring")
-    ;
+import parseUrl from "../lib/index.js"; // imports index.js explicitly otherwise it causes an error: ERR_UNSUPPORTED_DIR_IMPORT
+import tester from 'tester';
+import normalizeUrl from "normalize-url";
+import qs from 'querystring';
 
 const INPUTS = [
     [
