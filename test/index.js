@@ -84,6 +84,32 @@ const INPUTS = [
           , search: ""
         }
     ]
+  , [
+        ["javascript:alert(1)", false]
+      , {
+          protocols: [ "javascript" ]
+        , protocol: "javascript"
+        , port: null
+        , resource: ""
+        , user: ""
+        , pathname: "/alert(1)"
+        , hash: ""
+        , search: ""
+    }
+  ]
+  , [
+        ["javascript://google.com/%0aalert(1)", false]
+      , {
+          protocols: [ "javascript" ]
+        , protocol: "javascript"
+        , port: null
+        , resource: "google.com"
+        , user: ""
+        , pathname: "/%0aalert(1)"
+        , hash: ""
+        , search: ""
+    }
+  ]
 ];
 
 tester.describe("check urls", test => {
