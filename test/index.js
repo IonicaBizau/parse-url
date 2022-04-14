@@ -1,9 +1,8 @@
 // Dependencies
-const parseUrl = require("../lib")
-    , tester = require("tester")
-    , normalizeUrl = require("normalize-url")
-    , qs = require("querystring")
-    ;
+import parseUrl from "../lib";
+import tester from "tester";
+import normalizeUrl from "normalize-url";
+import qs from "querystring";
 
 const INPUTS = [
     [

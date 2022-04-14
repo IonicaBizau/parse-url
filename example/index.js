@@ -1,5 +1,5 @@
 // Dependencies
-const parseUrl = require("../lib")
+import parseUrl from "../lib/index.js";
 
 console.log(parseUrl("http://ionicabizau.net/blog"))
 // { protocols: [ 'http' ],
