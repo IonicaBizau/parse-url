@@ -160,7 +160,7 @@ Parses the input url.
 #### Params
 
 - **String** `url`: The input url.
-- **Boolean|Object** `normalize`: Wheter to normalize the url or not.                         Default is `false`. If `true`, the url will
+- **Boolean|Object** `normalize`: Whether to normalize the url or not.                         Default is `false`. If `true`, the url will
                         be normalized. If an object, it will be the
                         options object sent to [`normalize-url`](https://github.com/sindresorhus/normalize-url).
 
@@ -168,16 +168,16 @@ Parses the input url.
 
 #### Return
 - **Object** An object containing the following fields:
- - `protocols` (Array): An array with the url protocols (usually it has one element).
- - `protocol` (String): The first protocol, `"ssh"` (if the url is a ssh url) or `"file"`.
- - `port` (null|Number): The domain port.
- - `resource` (String): The url domain (including subdomains).
- - `user` (String): The authentication user (usually for ssh urls).
- - `pathname` (String): The url pathname.
- - `hash` (String): The url hash.
- - `search` (String): The url querystring value.
- - `href` (String): The input url.
- - `query` (Object): The url querystring, parsed as object.
+   - `protocols` (Array): An array with the url protocols (usually it has one element).
+   - `protocol` (String): The first protocol, `"ssh"` (if the url is a ssh url) or `"file"`.
+   - `port` (null|Number): The domain port.
+   - `resource` (String): The url domain (including subdomains).
+   - `user` (String): The authentication user (usually for ssh urls).
+   - `pathname` (String): The url pathname.
+   - `hash` (String): The url hash.
+   - `search` (String): The url querystring value.
+   - `href` (String): The input url.
+   - `query` (Object): The url querystring, parsed as object.
 
 
 
@@ -254,44 +254,43 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `@hemith/react-native-tnk`
  - `@kriblet/wa-automate`
  - `@notnuzzel/crawl`
- - `native-kakao-login`
- - `begg`
  - `gitlab-backup-util-harduino`
- - `miguelcostero-ng2-toasty`
- - `npm_one_1_2_3`
  - `bilibili2local`
- - `react-native-arunmeena1987`
- - `react-native-biometric-authenticate`
- - `react-native-contact-list`
- - `react-native-is7`
- - `react-native-payu-payment-testing`
- - `react-native-kakao-maps`
+ - `miguelcostero-ng2-toasty`
+ - `native-kakao-login`
  - `react-native-my-first-try-arun-ramya`
+ - `react-native-kakao-maps`
+ - `react-native-is7`
  - `react-native-ytximkit`
+ - `react-native-payu-payment-testing`
+ - `npm_one_1_2_3`
+ - `react-native-biometric-authenticate`
+ - `react-native-arunmeena1987`
+ - `react-native-contact-list`
  - `rn-adyen-dropin`
- - `@dataparty/api`
- - `@datalogic/react-native-datalogic-module`
+ - `@positionex/position-sdk`
+ - `begg`
  - `@corelmax/react-native-my2c2p-sdk`
+ - `@dataparty/api`
  - `@felipesimmi/react-native-datalogic-module`
- - `@hawkingnetwork/react-native-tab-view`
  - `@jprustv/sulla-hotfix`
+ - `@hawkingnetwork/react-native-tab-view`
  - `@mergulhao/wa-automate`
+ - `cli-live-tutorial`
+ - `drowl-base-theme-iconset`
+ - `native-apple-login`
  - `react-native-cplus`
  - `npm_qwerty`
- - `native-apple-login`
- - `drowl-base-theme-iconset`
- - `cli-live-tutorial`
- - `react-native-arunjeyam1987`
- - `verify-aws-sns-signature`
- - `vue-cli-plugin-ice-builder`
- - `vrt-cli`
  - `ssh-host-manager`
  - `soajs.repositories`
+ - `react-native-arunjeyam1987`
  - `react-native-bubble-chart`
+ - `verify-aws-sns-signature`
+ - `vrt-cli`
+ - `vue-cli-plugin-ice-builder`
  - `react-native-flyy`
- - `native-zip`
  - `graphmilker`
- - `tumblr-text`
+ - `native-zip`
  - `@apardellass/react-native-audio-stream`
  - `@geeky-apo/react-native-advanced-clipboard`
  - `@hsui/plugin-wss`
@@ -300,22 +299,22 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `@roshub/api`
  - `@saad27/react-native-bottom-tab-tour`
  - `generator-bootstrap-boilerplate-template`
- - `homebridge-pushcutter`
  - `react-feedback-sdk`
  - `loast`
  - `npm_one_12_34_1_`
  - `npm_one_2_2`
- - `react-native-responsive-size`
+ - `payutesting`
  - `react-native-sayhello-module`
  - `react-native-dsphoto-module`
- - `payutesting`
  - `vue-cli-plugin-ut-builder`
  - `xbuilder-forms`
+ - `tumblr-text`
  - `deploy-versioning`
  - `eval-spider`
+ - `homebridge-pushcutter`
+ - `@con-test/react-native-concent-common`
  - `@hstech/utils`
  - `@angga30prabu/wa-modified`
- - `@lakutata-module/service`
  - `birken-react-native-community-image-editor`
  - `get-tarball-cli`
  - `luojia-cli-dev`
@@ -325,33 +324,36 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `react-native-arun-ramya-test`
  - `react-native-arunramya151`
  - `react-native-plugpag-wrapper`
- - `delta-screen`
  - `workpad`
- - `microbe.js`
  - `ndla-source-map-resolver`
  - `@screeb/react-native`
+ - `@lakutata-module/service`
+ - `delta-screen`
+ - `microbe.js`
+ - `@buganto/client`
+ - `@jimengio/mocked-proxy`
  - `@mockswitch/cli`
  - `@ndla/source-map-resolver`
- - `@jimengio/mocked-proxy`
- - `@buganto/client`
- - `ts-scraper`
- - `ba-js-cookie-banner`
+ - `angularvezba`
+ - `api-reach-react-native-fix`
+ - `astra-ufo-sdk`
  - `react-native-syan-photo-picker`
  - `@wecraftapps/react-native-use-keyboard`
- - `angularvezba`
  - `hui-plugin-wss`
  - `l2forlerna`
  - `native-google-login`
+ - `raact-native-arunramya151`
  - `react-native-modal-progress-bar`
  - `react-native-test-module-hhh`
- - `raact-native-arunramya151`
+ - `react-native-jsi-device-info`
  - `react-native-badge-control`
  - `rn-tm-notify`
  - `wander-cli`
- - `hubot-will-it-connect`
- - `react-native-jsi-device-info`
+ - `ts-scraper`
  - `heroku-wp-environment-sync`
+ - `hubot-will-it-connect`
  - `normalize-ssh-url`
+ - `ba-js-cookie-banner`
 
 
 
