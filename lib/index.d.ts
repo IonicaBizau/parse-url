@@ -15,4 +15,4 @@ declare interface ParsedUrl {
 
 declare function parseUrl(url: string, normalize?: boolean | Object): ParsedUrl;
 
-export default parseUrl
+export = parseUrl
