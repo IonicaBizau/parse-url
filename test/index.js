@@ -2,7 +2,6 @@
 import parseUrl from "../lib";
 import tester from "tester";
 import normalizeUrl from "normalize-url";
-import qs from "querystring";
 
 const INPUTS = [
     [
@@ -10,12 +9,13 @@ const INPUTS = [
       , {
             protocols: [ "http" ]
           , protocol: "http"
-          , port: null
+          , port: ""
           , resource: "ionicabizau.net"
           , user: ""
           , pathname: "/blog"
           , hash: ""
           , search: ""
+          , query: {}
         }
     ]
   , [
@@ -23,12 +23,13 @@ const INPUTS = [
       , {
             protocols: ["http"]
           , protocol: "http"
-          , port: null
+          , port: ""
           , resource: "ionicabizau.net"
           , user: ""
           , pathname: "/foo.js"
           , hash: ""
           , search: ""
+          , query: {}
         }
     ]
   , [
@@ -36,12 +37,13 @@ const INPUTS = [
       , {
             protocols: ["http"]
           , protocol: "http"
-          , port: null
+          , port: ""
           , resource: "domain.com"
           , user: ""
           , pathname: "/path/name"
           , hash: "some-hash?foo=bar"
           , search: ""
+          , query: {}
         }
     ]
   , [
@@ -49,25 +51,27 @@ const INPUTS = [
       , {
             protocols: ["git", "ssh"]
           , protocol: "git"
-          , port: null
+          , port: ""
           , resource: "host.xz"
           , user: "git"
           , pathname: "/path/name.git"
           , hash: ""
           , search: ""
+          , query: {}
         }
     ]
   , [
         ["git@github.com:IonicaBizau/git-stats.git", false]
       , {
-            protocols: []
+            protocols: ["ssh"]
           , protocol: "ssh"
-          , port: null
+          , port: ""
           , resource: "github.com"
           , user: "git"
           , pathname: "/IonicaBizau/git-stats.git"
           , hash: ""
           , search: ""
+          , query: {}
         }
     ]
   , [
@@ -75,12 +79,13 @@ const INPUTS = [
       , {
             protocols: [ "http" ]
           , protocol: "http"
-          , port: null
+          , port: ""
           , resource: "ionicabizau.net"
           , user: ""
           , pathname: "/with-true-normalize"
           , hash: ""
           , search: ""
+          , query: {}
         }
     ]
 ];
@@ -90,13 +95,15 @@ tester.describe("check urls", test => {
         let url = Array.isArray(c[0]) ? c[0][0] : c[0]
         test.should("support " + url, () => {
             const res = parseUrl(url, c[0][1] !== false);
+
             if (c[0][1] !== false) {
                 url = normalizeUrl(url, {
                     stripHash: false
                 })
             }
-            c[1].query = qs.parse(c[1].search)
-            c[1].href = url
+
+            c[1].href = c[1].href || url
+            c[1].password = c[1].password || ""
             test.expect(res).toEqual(c[1]);
         });
     });

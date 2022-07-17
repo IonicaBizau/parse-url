@@ -80,49 +80,65 @@ yarn add parse-url
 const parseUrl = require("parse-url")
 
 console.log(parseUrl("http://ionicabizau.net/blog"))
-// { protocols: [ 'http' ],
+// {
+//   protocols: [ 'http' ],
 //   protocol: 'http',
-//   port: null,
+//   port: '',
 //   resource: 'ionicabizau.net',
 //   user: '',
+//   password: '',
 //   pathname: '/blog',
 //   hash: '',
 //   search: '',
-//   href: 'http://ionicabizau.net/blog' }
+//   href: 'http://ionicabizau.net/blog',
+//   query: {}
+// }
 
 console.log(parseUrl("http://domain.com/path/name?foo=bar&bar=42#some-hash"))
-// { protocols: [ 'http' ],
+// {
+//   protocols: [ 'http' ],
 //   protocol: 'http',
-//   port: null,
+//   port: '',
 //   resource: 'domain.com',
 //   user: '',
+//   password: '',
 //   pathname: '/path/name',
 //   hash: 'some-hash',
 //   search: 'foo=bar&bar=42',
-//   href: 'http://domain.com/path/name?foo=bar&bar=42#some-hash' }
+//   href: 'http://domain.com/path/name?foo=bar&bar=42#some-hash',
+//   query: { foo: 'bar', bar: '42' }
+// }
 
 // If you want to parse fancy Git urls, turn off the automatic url normalization
 console.log(parseUrl("git+ssh://git@host.xz/path/name.git", false))
-// { protocols: [ 'git', 'ssh' ],
+// {
+//   protocols: [ 'git', 'ssh' ],
 //   protocol: 'git',
-//   port: null,
+//   port: '',
 //   resource: 'host.xz',
 //   user: 'git',
+//   password: '',
 //   pathname: '/path/name.git',
 //   hash: '',
 //   search: '',
-//   href: 'git+ssh://git@host.xz/path/name.git' }
+//   href: 'git+ssh://git@host.xz/path/name.git',
+//   query: {}
+// }
 
 console.log(parseUrl("git@github.com:IonicaBizau/git-stats.git", false))
-// { protocols: [],
+// {
+//   protocols: [ 'ssh' ],
 //   protocol: 'ssh',
-//   port: null,
+//   port: '',
 //   resource: 'github.com',
 //   user: 'git',
+//   password: '',
 //   pathname: '/IonicaBizau/git-stats.git',
 //   hash: '',
 //   search: '',
-//   href: 'git@github.com:IonicaBizau/git-stats.git' }
+//   href: 'git@github.com:IonicaBizau/git-stats.git',
+//   query: {}
+// }
 ```
 
 
@@ -160,7 +176,7 @@ Parses the input url.
 #### Params
 
 - **String** `url`: The input url.
-- **Boolean|Object** `normalize`: Wheter to normalize the url or not.                         Default is `false`. If `true`, the url will
+- **Boolean|Object** `normalize`: Whether to normalize the url or not.                         Default is `false`. If `true`, the url will
                         be normalized. If an object, it will be the
                         options object sent to [`normalize-url`](https://github.com/sindresorhus/normalize-url).
 
@@ -168,16 +184,16 @@ Parses the input url.
 
 #### Return
 - **Object** An object containing the following fields:
- - `protocols` (Array): An array with the url protocols (usually it has one element).
- - `protocol` (String): The first protocol, `"ssh"` (if the url is a ssh url) or `"file"`.
- - `port` (null|Number): The domain port.
- - `resource` (String): The url domain (including subdomains).
- - `user` (String): The authentication user (usually for ssh urls).
- - `pathname` (String): The url pathname.
- - `hash` (String): The url hash.
- - `search` (String): The url querystring value.
- - `href` (String): The input url.
- - `query` (Object): The url querystring, parsed as object.
+   - `protocols` (Array): An array with the url protocols (usually it has one element).
+   - `protocol` (String): The first protocol, `"ssh"` (if the url is a ssh url) or `"file"`.
+   - `port` (null|Number): The domain port.
+   - `resource` (String): The url domain (including subdomains).
+   - `user` (String): The authentication user (usually for ssh urls).
+   - `pathname` (String): The url pathname.
+   - `hash` (String): The url hash.
+   - `search` (String): The url querystring value.
+   - `href` (String): The input url.
+   - `query` (Object): The url querystring, parsed as object.
 
 
 
@@ -235,79 +251,125 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `git-up`
  - `lien`
  - `stun`
- - `kakapo`
  - `@open-wa/wa-automate`
- - `fuge-runner`
- - `url-local`
+ - `kakapo`
  - `parse-db-uri`
- - `warp-api`
- - `warp-server`
- - `robots-agent`
- - `normalize-ssh`
- - `xl-git-up`
- - `normalize-id`
+ - `url-local`
+ - `fuge-runner`
+ - `build-plugin-ssr`
+ - `rucksack`
  - `egg-muc-custom-loader`
  - `hologit`
- - `vrt-cli`
- - `native-zip`
- - `normalize-ssh-url`
- - `eval-spider`
- - `ts-scraper`
- - `microbe.js`
- - `hubot-will-it-connect`
- - `deploy-versioning`
- - `xbuilder-forms`
- - `tumblr-text`
- - `ssh-host-manager`
- - `blitzzz`
- - `wander-cli`
- - `graphmilker`
- - `api-reach-react-native-fix`
- - `@roshub/api`
- - `verify-aws-sns-signature`
- - `@apardellass/react-native-audio-stream`
- - `l2forlerna`
- - `react-native-plugpag-wrapper`
- - `react-native-pulsator-native`
- - `@hstech/utils`
- - `react-native-kakao-maps`
- - `@geeky-apo/react-native-advanced-clipboard`
- - `native-apple-login`
- - `native-google-login`
- - `@jprustv/sulla-hotfix`
- - `vue-cli-plugin-ice-builder`
+ - `@enkeledi/react-native-week-month-date-picker`
+ - `normalize-ssh`
+ - `robots-agent`
+ - `warp-api`
+ - `normalize-id`
+ - `xl-git-up`
+ - `warp-server`
  - `@hemith/react-native-tnk`
- - `workpad`
+ - `@kriblet/wa-automate`
+ - `@notnuzzel/crawl`
+ - `gitlab-backup-util-harduino`
+ - `bilibili2local`
+ - `miguelcostero-ng2-toasty`
+ - `native-kakao-login`
+ - `react-native-my-first-try-arun-ramya`
+ - `react-native-kakao-maps`
+ - `react-native-is7`
+ - `react-native-ytximkit`
+ - `react-native-payu-payment-testing`
+ - `npm_one_1_2_3`
+ - `react-native-biometric-authenticate`
+ - `react-native-arunmeena1987`
  - `react-native-contact-list`
+ - `rn-adyen-dropin`
+ - `@positionex/position-sdk`
+ - `begg`
  - `@corelmax/react-native-my2c2p-sdk`
  - `@dataparty/api`
- - `heroku-wp-environment-sync`
- - `react-native-responsive-size`
- - `delta-screen`
- - `react-native-test-module-hhh`
- - `react-native-is7`
- - `@kriblet/wa-automate`
- - `@mergulhao/wa-automate`
- - `@jimengio/mocked-proxy`
- - `cli-live-tutorial`
- - `@buganto/client`
- - `@datalogic/react-native-datalogic-module`
- - `birken-react-native-community-image-editor`
- - `native-kakao-login`
- - `react-native-modal-progress-bar`
+ - `@felipesimmi/react-native-datalogic-module`
+ - `@jprustv/sulla-hotfix`
  - `@hawkingnetwork/react-native-tab-view`
- - `miguelcostero-ng2-toasty`
- - `vue-cli-plugin-ut-builder`
- - `cv-app-payment-adyen`
- - `react-native-flyy`
+ - `@mergulhao/wa-automate`
+ - `cli-live-tutorial`
  - `drowl-base-theme-iconset`
- - `gitlab-backup-util-harduino`
- - `loast`
- - `rn-custom-tabview`
- - `homebridge-pushcutter`
+ - `native-apple-login`
+ - `react-native-cplus`
+ - `npm_qwerty`
+ - `ssh-host-manager`
  - `soajs.repositories`
- - `@ntt_app/react-native-custom-notification`
+ - `react-native-arunjeyam1987`
+ - `react-native-bubble-chart`
+ - `verify-aws-sns-signature`
+ - `vrt-cli`
+ - `vue-cli-plugin-ice-builder`
+ - `react-native-flyy`
+ - `graphmilker`
+ - `native-zip`
+ - `@apardellass/react-native-audio-stream`
+ - `@geeky-apo/react-native-advanced-clipboard`
+ - `@hsui/plugin-wss`
+ - `blitzzz`
+ - `candlelabssdk`
+ - `@roshub/api`
+ - `@saad27/react-native-bottom-tab-tour`
+ - `generator-bootstrap-boilerplate-template`
+ - `react-feedback-sdk`
+ - `loast`
+ - `npm_one_12_34_1_`
+ - `npm_one_2_2`
+ - `payutesting`
+ - `react-native-sayhello-module`
+ - `react-native-dsphoto-module`
+ - `vue-cli-plugin-ut-builder`
+ - `xbuilder-forms`
+ - `tumblr-text`
+ - `deploy-versioning`
+ - `eval-spider`
+ - `homebridge-pushcutter`
+ - `@con-test/react-native-concent-common`
+ - `@hstech/utils`
+ - `@angga30prabu/wa-modified`
+ - `birken-react-native-community-image-editor`
+ - `get-tarball-cli`
+ - `luojia-cli-dev`
+ - `reac-native-arun-ramya-test`
+ - `react-native-transtracker-library`
+ - `react-native-pulsator-native`
+ - `react-native-arun-ramya-test`
+ - `react-native-arunramya151`
+ - `react-native-plugpag-wrapper`
+ - `workpad`
+ - `ndla-source-map-resolver`
+ - `@screeb/react-native`
+ - `@lakutata-module/service`
+ - `delta-screen`
+ - `microbe.js`
+ - `@buganto/client`
+ - `@jimengio/mocked-proxy`
+ - `@mockswitch/cli`
  - `@ndla/source-map-resolver`
+ - `angularvezba`
+ - `api-reach-react-native-fix`
+ - `astra-ufo-sdk`
+ - `react-native-syan-photo-picker`
+ - `@wecraftapps/react-native-use-keyboard`
+ - `hui-plugin-wss`
+ - `l2forlerna`
+ - `native-google-login`
+ - `raact-native-arunramya151`
+ - `react-native-modal-progress-bar`
+ - `react-native-test-module-hhh`
+ - `react-native-jsi-device-info`
+ - `react-native-badge-control`
+ - `rn-tm-notify`
+ - `wander-cli`
+ - `ts-scraper`
+ - `heroku-wp-environment-sync`
+ - `hubot-will-it-connect`
+ - `normalize-ssh-url`
+ - `ba-js-cookie-banner`
 
 
 
