@@ -1,8 +1,7 @@
 // Dependencies
-const parseUrl = require("../lib")
-    , tester = require("tester")
-    , normalizeUrl = require("normalize-url")
-    ;
+import parseUrl from "../lib/index.js";
+import tester from "tester";
+import normalizeUrl from "normalize-url";
 
 const INPUTS = [
     [
