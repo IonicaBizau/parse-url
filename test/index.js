@@ -88,6 +88,20 @@ const INPUTS = [
           , query: {}
         }
     ]
+  , [
+        ["file:///etc/passwd?#http://a:1:1", false]
+      , {
+            protocols: [ "file" ]
+          , protocol: "file"
+          , port: ""
+          , resource: ""
+          , user: ""
+          , pathname: "/etc/passwd"
+          , hash: "http://a:1:1"
+          , search: ""
+          , query: {}
+        }
+    ]
 ];
 
 tester.describe("check urls", test => {
