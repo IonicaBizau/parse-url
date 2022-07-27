@@ -88,6 +88,21 @@ const INPUTS = [
           , query: {}
         }
     ]
+  , [
+        ["git@github.my-enterprise.com:my-org/my-repo.git", false],
+        {
+            protocols: [ 'ssh' ]
+            , protocol: 'ssh'
+            , port: ''
+            , resource: 'github.my-enterprise.com'
+            , user: 'git'
+            , password: ''
+            , pathname: '/my-org/my-repo.git'
+            , hash: ''
+            , search: ''
+            , query: {}
+        }
+    ]
 ];
 
 tester.describe("check urls", test => {
