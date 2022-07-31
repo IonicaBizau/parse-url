@@ -88,6 +88,20 @@ const INPUTS = [
           , query: {}
         }
     ]
+  , [
+      ["git@github.com:halup/Cloud.API.Gateway.git", false]
+    , {
+          protocols: [ "ssh" ]
+        , protocol: "ssh"
+        , port: ""
+        , resource: "github.com"
+        , user: "git"
+        , pathname: "/halup/Cloud.API.Gateway.git"
+        , hash: ""
+        , search: ""
+        , query: {}
+      }
+  ]
 ];
 
 tester.describe("check urls", test => {
