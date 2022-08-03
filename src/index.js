@@ -1,5 +1,3 @@
-"use strict"
-
 // Dependencies
 import parsePath from "parse-path";
 import normalizeUrl from "normalize-url";
