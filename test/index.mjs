@@ -134,6 +134,23 @@ const INPUTS = [
         }
     ]
   , [
+        ["org-12345678@github.my-enterprise.com:my-org/my-repo.git", false],
+        {
+            protocols: [ 'ssh' ]
+          , protocol: 'ssh'
+          , port: ''
+          , resource: 'github.my-enterprise.com'
+          , host: 'github.my-enterprise.com'
+          , user: 'org-12345678'
+          , password: ''
+          , pathname: '/my-org/my-repo.git'
+          , hash: ''
+          , search: ''
+          , query: {}
+          , parse_failed: false
+        }
+    ]
+  , [
       ["git@github.com:halup/Cloud.API.Gateway.git", false]
     , {
           protocols: [ "ssh" ]

@@ -43,7 +43,7 @@ var normalizeUrl__default = /*#__PURE__*/_interopDefaultLegacy(normalizeUrl);
 const parseUrl = (url, normalize = false) => {
 
     // Constants
-    const GIT_RE = /^(?:git@|https?:\/\/)([\w\.\-@]+)[\/:]([\~,\.\w,\-,\_,\/]+?(?:\.git|\/)?)$/;
+    const GIT_RE = /^(?:([a-z_][a-z0-9_-]{0,31})@|https?:\/\/)([\w\.\-@]+)[\/:]([\~,\.\w,\-,\_,\/]+?(?:\.git|\/)?)$/;
 
     const throwErr = msg => {
         const err = new Error(msg);
@@ -77,10 +77,10 @@ const parseUrl = (url, normalize = false) => {
         if (matched) {
             parsed.protocols = ["ssh"];
             parsed.protocol = "ssh";
-            parsed.resource = matched[1];
-            parsed.host = matched[1];
-            parsed.user = "git";
-            parsed.pathname = `/${matched[2]}`;
+            parsed.resource = matched[2];
+            parsed.host = matched[2];
+            parsed.user = matched[1];
+            parsed.pathname = `/${matched[3]}`;
             parsed.parse_failed = false;
         } else {
             throwErr("URL parsing failed.");
