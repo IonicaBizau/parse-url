@@ -41,7 +41,6 @@
     "normalize-url": "^7.0.3"
   },
   "dependencies": {
-    "normalize-url": "^7.0.3",
     "parse-path": "^7.0.0"
   },
   "files": [
