@@ -2,6 +2,12 @@
 
 You can see below the API reference of this module.
 
+### `interopDefaultLegacy()`
+#__PURE__
+
+### `interopDefaultLegacy()`
+#__PURE__
+
 ### `parseUrl(url, normalize)`
 Parses the input url.
 
@@ -28,4 +34,5 @@ Parses the input url.
    - `search` (String): The url querystring value.
    - `href` (String): The input url.
    - `query` (Object): The url querystring, parsed as object.
+   - `parse_failed` (Boolean): Whether the parsing failed or not.
 

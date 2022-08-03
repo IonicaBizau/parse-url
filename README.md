@@ -77,7 +77,7 @@ yarn add parse-url
 
 ```js
 // Dependencies
-const parseUrl = require("parse-url")
+import parseUrl from "../lib/index.js";
 
 console.log(parseUrl("http://ionicabizau.net/blog"))
 // {
@@ -168,6 +168,12 @@ There are few ways to get help:
 ## :memo: Documentation
 
 
+### `interopDefaultLegacy()`
+#__PURE__
+
+### `interopDefaultLegacy()`
+#__PURE__
+
 ### `parseUrl(url, normalize)`
 Parses the input url.
 
@@ -194,6 +200,7 @@ Parses the input url.
    - `search` (String): The url querystring value.
    - `href` (String): The input url.
    - `query` (Object): The url querystring, parsed as object.
+   - `parse_failed` (Boolean): Whether the parsing failed or not.
 
 
 
@@ -249,13 +256,15 @@ Thanks! :heart:
 If you are using this library in one of your projects, add it in this list. :sparkles:
 
  - `git-up`
+ - `@semantic-release/gitlab`
  - `lien`
  - `stun`
  - `@open-wa/wa-automate`
  - `kakapo`
+ - `@pushrocks/smarturl`
  - `parse-db-uri`
- - `url-local`
  - `fuge-runner`
+ - `url-local`
  - `build-plugin-ssr`
  - `rucksack`
  - `egg-muc-custom-loader`
@@ -270,24 +279,21 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `@hemith/react-native-tnk`
  - `@kriblet/wa-automate`
  - `@notnuzzel/crawl`
- - `gitlab-backup-util-harduino`
- - `bilibili2local`
- - `miguelcostero-ng2-toasty`
  - `native-kakao-login`
- - `react-native-my-first-try-arun-ramya`
- - `react-native-kakao-maps`
- - `react-native-is7`
- - `react-native-ytximkit`
- - `react-native-payu-payment-testing`
+ - `gitlab-backup-util-harduino`
+ - `miguelcostero-ng2-toasty`
  - `npm_one_1_2_3`
- - `react-native-biometric-authenticate`
  - `react-native-arunmeena1987`
+ - `react-native-biometric-authenticate`
  - `react-native-contact-list`
- - `rn-adyen-dropin`
+ - `react-native-is7`
+ - `react-native-payu-payment-testing`
+ - `react-native-kakao-maps`
+ - `react-native-my-first-try-arun-ramya`
+ - `react-native-ytximkit`
  - `@positionex/position-sdk`
  - `begg`
  - `@corelmax/react-native-my2c2p-sdk`
- - `@dataparty/api`
  - `@felipesimmi/react-native-datalogic-module`
  - `@jprustv/sulla-hotfix`
  - `@hawkingnetwork/react-native-tab-view`
@@ -300,58 +306,61 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `ssh-host-manager`
  - `soajs.repositories`
  - `react-native-arunjeyam1987`
- - `react-native-bubble-chart`
- - `verify-aws-sns-signature`
  - `vrt-cli`
  - `vue-cli-plugin-ice-builder`
- - `react-native-flyy`
  - `graphmilker`
  - `native-zip`
+ - `react-native-flyy`
+ - `react-native-bubble-chart`
+ - `verify-aws-sns-signature`
+ - `@dataparty/api`
  - `@apardellass/react-native-audio-stream`
  - `@geeky-apo/react-native-advanced-clipboard`
  - `@hsui/plugin-wss`
- - `blitzzz`
- - `candlelabssdk`
- - `@roshub/api`
  - `@saad27/react-native-bottom-tab-tour`
+ - `@roshub/api`
+ - `candlelabssdk`
+ - `blitzzz`
  - `generator-bootstrap-boilerplate-template`
- - `react-feedback-sdk`
- - `loast`
+ - `react-native-dsphoto-module`
+ - `react-native-responsive-size`
+ - `react-native-sayhello-module`
  - `npm_one_12_34_1_`
  - `npm_one_2_2`
  - `payutesting`
- - `react-native-sayhello-module`
- - `react-native-dsphoto-module`
  - `vue-cli-plugin-ut-builder`
  - `xbuilder-forms`
- - `tumblr-text`
  - `deploy-versioning`
  - `eval-spider`
  - `homebridge-pushcutter`
  - `@con-test/react-native-concent-common`
- - `@hstech/utils`
- - `@angga30prabu/wa-modified`
- - `birken-react-native-community-image-editor`
- - `get-tarball-cli`
- - `luojia-cli-dev`
+ - `tumblr-text`
+ - `react-native-shekhar-bridge-test`
+ - `loast`
+ - `react-feedback-sdk`
  - `reac-native-arun-ramya-test`
- - `react-native-transtracker-library`
- - `react-native-pulsator-native`
  - `react-native-arun-ramya-test`
  - `react-native-arunramya151`
  - `react-native-plugpag-wrapper`
+ - `react-native-pulsator-native`
+ - `react-native-transtracker-library`
  - `workpad`
- - `ndla-source-map-resolver`
- - `@screeb/react-native`
- - `@lakutata-module/service`
+ - `@angga30prabu/wa-modified`
+ - `@hstech/utils`
+ - `get-tarball-cli`
+ - `luojia-cli-dev`
+ - `birken-react-native-community-image-editor`
  - `delta-screen`
  - `microbe.js`
- - `@buganto/client`
+ - `@lakutata-module/service`
+ - `ndla-source-map-resolver`
+ - `@screeb/react-native`
+ - `@jfilipe-sparta/react-native-module_2`
  - `@jimengio/mocked-proxy`
+ - `@buganto/client`
  - `@mockswitch/cli`
- - `@ndla/source-map-resolver`
- - `angularvezba`
  - `api-reach-react-native-fix`
+ - `angularvezba`
  - `astra-ufo-sdk`
  - `react-native-syan-photo-picker`
  - `@wecraftapps/react-native-use-keyboard`
@@ -361,15 +370,18 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `raact-native-arunramya151`
  - `react-native-modal-progress-bar`
  - `react-native-test-module-hhh`
- - `react-native-jsi-device-info`
- - `react-native-badge-control`
- - `rn-tm-notify`
  - `wander-cli`
- - `ts-scraper`
+ - `react-native-badge-control`
+ - `react-native-jsi-device-info`
+ - `normalize-ssh-url`
  - `heroku-wp-environment-sync`
  - `hubot-will-it-connect`
- - `normalize-ssh-url`
  - `ba-js-cookie-banner`
+ - `@ndla/source-map-resolver`
+ - `ts-scraper`
+ - `electron-info`
+ - `rn-tm-notify`
+ - `native-date-picker-module`
 
 
 
