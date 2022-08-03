@@ -17,6 +17,7 @@ const INPUTS = [
           , hash: ""
           , search: ""
           , query: {}
+          , parse_failed: false
         }
     ]
   , [
@@ -32,6 +33,7 @@ const INPUTS = [
           , hash: ""
           , search: ""
           , query: {}
+          , parse_failed: false
         }
     ]
   , [
@@ -47,6 +49,7 @@ const INPUTS = [
           , hash: "some-hash?foo=bar"
           , search: ""
           , query: {}
+          , parse_failed: false
         }
     ]
   , [
@@ -62,6 +65,7 @@ const INPUTS = [
           , hash: ""
           , search: ""
           , query: {}
+          , parse_failed: false
         }
     ]
   , [
@@ -77,6 +81,7 @@ const INPUTS = [
           , hash: ""
           , search: ""
           , query: {}
+          , parse_failed: false
         }
     ]
   , [
@@ -92,6 +97,7 @@ const INPUTS = [
           , hash: ""
           , search: ""
           , query: {}
+          , parse_failed: false
         }
     ]
   , [
@@ -107,22 +113,24 @@ const INPUTS = [
           , hash: "http://a:1:1"
           , search: ""
           , query: {}
+          , parse_failed: false
         }
     ]
   , [
         ["git@github.my-enterprise.com:my-org/my-repo.git", false],
         {
             protocols: [ 'ssh' ]
-            , protocol: 'ssh'
-            , port: ''
-            , resource: 'github.my-enterprise.com'
-            , host: 'github.my-enterprise.com'
-            , user: 'git'
-            , password: ''
-            , pathname: '/my-org/my-repo.git'
-            , hash: ''
-            , search: ''
-            , query: {}
+          , protocol: 'ssh'
+          , port: ''
+          , resource: 'github.my-enterprise.com'
+          , host: 'github.my-enterprise.com'
+          , user: 'git'
+          , password: ''
+          , pathname: '/my-org/my-repo.git'
+          , hash: ''
+          , search: ''
+          , query: {}
+          , parse_failed: false
         }
     ]
   , [
@@ -138,6 +146,7 @@ const INPUTS = [
         , hash: ""
         , search: ""
         , query: {}
+        , parse_failed: false
       }
   ]
 ];
@@ -164,5 +173,18 @@ tester.describe("check urls", test => {
         test.expect(() => {
             parseUrl("")
         }).toThrow(/invalid url/i)
+    })
+
+    test.should("throw if url is too long", () => {
+        parseUrl.MAX_INPUT_LENGTH = 10
+        test.expect(() => {
+            parseUrl("https://domain.com/")
+        }).toThrow(/input exceeds maximum length/i)
+    })
+
+    test.should("throw if url is invalid", () => {
+        test.expect(() => {
+            parseUrl("foo")
+        }).toThrow(/url parsing failed/i)
     })
 });
