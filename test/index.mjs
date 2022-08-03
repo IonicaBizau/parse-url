@@ -1,5 +1,5 @@
 // Dependencies
-import parseUrl from "../dist/index.mjs";
+import parseUrl from "../dist/index.js";
 import tester from "tester";
 import normalizeUrl from "normalize-url";
 
