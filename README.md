@@ -77,7 +77,7 @@ yarn add parse-url
 
 ```js
 // Dependencies
-import parseUrl from "../lib/index.js";
+import parseUrl from "parse-url";
 
 console.log(parseUrl("http://ionicabizau.net/blog"))
 // {
