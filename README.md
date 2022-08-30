@@ -19,7 +19,7 @@
 
 # parse-url
 
- [![Support me on Patreon][badge_patreon]][patreon] [![Buy me a book][badge_amazon]][amazon] [![PayPal][badge_paypal_donate]][paypal-donations] [![Ask me anything](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Travis](https://img.shields.io/travis/IonicaBizau/parse-url.svg)](https://travis-ci.org/IonicaBizau/parse-url/) [![Version](https://img.shields.io/npm/v/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Downloads](https://img.shields.io/npm/dt/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
+ [![Support me on Patreon][badge_patreon]][patreon] [![Buy me a book][badge_amazon]][amazon] [![PayPal][badge_paypal_donate]][paypal-donations] [![Ask me anything](https://img.shields.io/badge/ask%20me-anything-1abc9c.svg)](https://github.com/IonicaBizau/ama) [![Version](https://img.shields.io/npm/v/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Downloads](https://img.shields.io/npm/dt/parse-url.svg)](https://www.npmjs.com/package/parse-url) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
 <a href="https://www.buymeacoffee.com/H96WwChMy" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
 
@@ -77,7 +77,7 @@ yarn add parse-url
 
 ```js
 // Dependencies
-import parseUrl from "parse-url";
+import parseUrl from "../lib/index.js";
 
 console.log(parseUrl("http://ionicabizau.net/blog"))
 // {
@@ -171,9 +171,6 @@ There are few ways to get help:
 ### `interopDefaultLegacy()`
 #__PURE__
 
-### `interopDefaultLegacy()`
-#__PURE__
-
 ### `parseUrl(url, normalize)`
 Parses the input url.
 
@@ -261,7 +258,6 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `stun`
  - `@open-wa/wa-automate`
  - `kakapo`
- - `@pushrocks/smarturl`
  - `parse-db-uri`
  - `fuge-runner`
  - `url-local`
@@ -279,55 +275,55 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `@hemith/react-native-tnk`
  - `@kriblet/wa-automate`
  - `@notnuzzel/crawl`
- - `native-kakao-login`
  - `gitlab-backup-util-harduino`
  - `miguelcostero-ng2-toasty`
+ - `native-kakao-login`
  - `npm_one_1_2_3`
- - `react-native-arunmeena1987`
  - `react-native-biometric-authenticate`
+ - `react-native-arunmeena1987`
  - `react-native-contact-list`
- - `react-native-is7`
  - `react-native-payu-payment-testing`
- - `react-native-kakao-maps`
+ - `react-native-is7`
  - `react-native-my-first-try-arun-ramya`
+ - `react-native-kakao-maps`
  - `react-native-ytximkit`
- - `@positionex/position-sdk`
+ - `rn-adyen-dropin`
  - `begg`
+ - `@positionex/position-sdk`
  - `@corelmax/react-native-my2c2p-sdk`
  - `@felipesimmi/react-native-datalogic-module`
- - `@jprustv/sulla-hotfix`
  - `@hawkingnetwork/react-native-tab-view`
+ - `@jprustv/sulla-hotfix`
  - `@mergulhao/wa-automate`
  - `cli-live-tutorial`
  - `drowl-base-theme-iconset`
  - `native-apple-login`
  - `react-native-cplus`
  - `npm_qwerty`
- - `ssh-host-manager`
- - `soajs.repositories`
- - `react-native-arunjeyam1987`
  - `vrt-cli`
  - `vue-cli-plugin-ice-builder`
- - `graphmilker`
+ - `react-native-arunjeyam1987`
+ - `soajs.repositories`
+ - `ssh-host-manager`
  - `native-zip`
- - `react-native-flyy`
+ - `graphmilker`
  - `react-native-bubble-chart`
  - `verify-aws-sns-signature`
  - `@dataparty/api`
+ - `react-native-flyy`
+ - `@react-18-pdf/root`
  - `@apardellass/react-native-audio-stream`
  - `@geeky-apo/react-native-advanced-clipboard`
  - `@hsui/plugin-wss`
- - `@saad27/react-native-bottom-tab-tour`
- - `@roshub/api`
- - `candlelabssdk`
  - `blitzzz`
+ - `candlelabssdk`
+ - `@roshub/api`
+ - `@saad27/react-native-bottom-tab-tour`
  - `generator-bootstrap-boilerplate-template`
- - `react-native-dsphoto-module`
- - `react-native-responsive-size`
- - `react-native-sayhello-module`
  - `npm_one_12_34_1_`
  - `npm_one_2_2`
  - `payutesting`
+ - `react-native-responsive-size`
  - `vue-cli-plugin-ut-builder`
  - `xbuilder-forms`
  - `deploy-versioning`
@@ -338,30 +334,30 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `react-native-shekhar-bridge-test`
  - `loast`
  - `react-feedback-sdk`
- - `reac-native-arun-ramya-test`
- - `react-native-arun-ramya-test`
- - `react-native-arunramya151`
- - `react-native-plugpag-wrapper`
- - `react-native-pulsator-native`
- - `react-native-transtracker-library`
- - `workpad`
+ - `@oiti/documentoscopy-react-native`
+ - `@snyk/sweater-comb`
  - `@angga30prabu/wa-modified`
  - `@hstech/utils`
+ - `birken-react-native-community-image-editor`
  - `get-tarball-cli`
  - `luojia-cli-dev`
- - `birken-react-native-community-image-editor`
+ - `reac-native-arun-ramya-test`
+ - `react-native-plugpag-wrapper`
+ - `react-native-pulsator-native`
+ - `react-native-arun-ramya-test`
+ - `react-native-arunramya151`
+ - `react-native-transtracker-library`
+ - `workpad`
  - `delta-screen`
  - `microbe.js`
- - `@lakutata-module/service`
  - `ndla-source-map-resolver`
- - `@screeb/react-native`
  - `@jfilipe-sparta/react-native-module_2`
- - `@jimengio/mocked-proxy`
+ - `cogoportutils`
+ - `@lakutata-module/service`
  - `@buganto/client`
  - `@mockswitch/cli`
- - `api-reach-react-native-fix`
  - `angularvezba`
- - `astra-ufo-sdk`
+ - `api-reach-react-native-fix`
  - `react-native-syan-photo-picker`
  - `@wecraftapps/react-native-use-keyboard`
  - `hui-plugin-wss`
@@ -370,18 +366,19 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `raact-native-arunramya151`
  - `react-native-modal-progress-bar`
  - `react-native-test-module-hhh`
- - `wander-cli`
- - `react-native-badge-control`
  - `react-native-jsi-device-info`
- - `normalize-ssh-url`
+ - `react-native-badge-control`
+ - `wander-cli`
  - `heroku-wp-environment-sync`
  - `hubot-will-it-connect`
+ - `normalize-ssh-url`
  - `ba-js-cookie-banner`
- - `@ndla/source-map-resolver`
  - `ts-scraper`
  - `electron-info`
  - `rn-tm-notify`
  - `native-date-picker-module`
+ - `@ndla/source-map-resolver`
+ - `@jimengio/mocked-proxy`
 
 
 

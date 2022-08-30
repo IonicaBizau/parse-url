@@ -5,9 +5,6 @@ You can see below the API reference of this module.
 ### `interopDefaultLegacy()`
 #__PURE__
 
-### `interopDefaultLegacy()`
-#__PURE__
-
 ### `parseUrl(url, normalize)`
 Parses the input url.
 
