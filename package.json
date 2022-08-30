@@ -54,6 +54,7 @@
     "menu/",
     "cli.js",
     "index.js",
+    "index.d.ts",
     "bloggify.js",
     "bloggify.json",
     "bloggify/"
