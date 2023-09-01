@@ -288,7 +288,7 @@ function normalizeUrl(urlString, options) {
 const parseUrl = (url, normalize = false) => {
 
     // Constants
-    const GIT_RE = /^(?:([a-z_][a-z0-9_-]{0,31})@|https?:\/\/)([\w\.\-@]+)[\/:]([\~,\.\w,\-,\_,\/]+?(?:\.git|\/)?)$/;
+    const GIT_RE = /^(?:([a-z_][a-z0-9_-]{0,31})@|https?:\/\/)([\w\.\-@]+)[\/:]([\~,\.\w,\-,\_,\/,\%]+?(?:\.git|\/)?)$/;
 
     const throwErr = msg => {
         const err = new Error(msg);

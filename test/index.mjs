@@ -165,6 +165,21 @@ const INPUTS = [
         , query: {}
         , parse_failed: false
       }
+  ],  [
+    ["git@ssh.dev.azure.com:v3/compagny/Project%20Space/Project-nonSpace", false]
+  , {
+        protocols: [ "ssh" ]
+      , protocol: "ssh"
+      , port: ""
+      , resource: "ssh.dev.azure.com"
+      , host: "ssh.dev.azure.com"
+      , user: "git"
+      , pathname: "/v3/compagny/Project%20Space/Project-nonSpace"
+      , hash: ""
+      , search: ""
+      , query: {}
+      , parse_failed: false
+    }
   ]
 ];
 
