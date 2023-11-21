@@ -36,7 +36,13 @@ import parsePath from "parse-path";
 const parseUrl = (url, normalize = false) => {
 
     // Constants
+    /**
+     * ([a-z_][a-z0-9_-]{0,31}) Try to match the user
+     * ([\w\.\-@]+) Match the host/resource
+     * (([\~,\.\w,\-,\_,\/,\s]|%[0-9A-Fa-f]{2})+?(?:\.git|\/)?) Match the path, allowing spaces/white 
+     */
     const GIT_RE = /^(?:([a-z_][a-z0-9_-]{0,31})@|https?:\/\/)([\w\.\-@]+)[\/:](([\~,\.\w,\-,\_,\/,\s]|%[0-9A-Fa-f]{2})+?(?:\.git|\/)?)$/;
+    
     const throwErr = msg => {
         const err = new Error(msg)
         err.subject_url = url
