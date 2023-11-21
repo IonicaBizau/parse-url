@@ -289,18 +289,6 @@ const INPUTS = [
   ],
 ];
 
-
-
-
-
-// test('SSH URL with URL-encoded spaces', 'git@ssh.dev.azure.com:v3/ORG/My%20project/repo');
-// test('SSH URL with non URL-encoded spaces', 'git@ssh.dev.azure.com:v3/ORG/My project/repo');
-// test('SSH URL without spaces', 'git@ssh.dev.azure.com:v3/ORG/My-project/repo');
-// test('HTTPS URL with URL-encoded spaces', 'https://ORG@dev.azure.com/ORG/My%20project/_git/repo');
-// test('HTTPS URL with non URL-encoded spaces', 'https://ORG@dev.azure.com/ORG/My project/_git/repo');
-// test('HTTPS URL without spaces', 'https://ORG@dev.azure.com/ORG/My-project/_git/repo');
-
-
 tester.describe("check urls", test => {
     INPUTS.forEach(function (c) {
         let url = Array.isArray(c[0]) ? c[0][0] : c[0]

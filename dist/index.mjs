@@ -280,55 +280,52 @@ function normalizeUrl(urlString, options) {
  *    - `parse_failed` (Boolean): Whether the parsing failed or not.
  */
 const parseUrl = (url, normalize = false) => {
-  // Constants
-  // const GIT_RE = /^(?:([a-z_][a-z0-9_-]{0,31})@|https?:\/\/)([\w\.\-@]+)[\/:]([\~,\.\w,\-,\_,\/]+?(?:\.git|\/)?)$/
-  const GIT_RE =
-    /^(?:([a-z_][a-z0-9_-]{0,31})@|https?:\/\/)([\w\.\-@]+)[\/:](([\~,\.\w,\-,\_,\/,\s]|%[0-9A-Fa-f]{2})+?(?:\.git|\/)?)$/;
-  const throwErr = (msg) => {
-    const err = new Error(msg);
-    err.subject_url = url;
-    throw err;
-  };
 
-  if (typeof url !== "string" || !url.trim()) {
-    throwErr("Invalid url.");
-  }
+    // Constants
+    const GIT_RE = /^(?:([a-z_][a-z0-9_-]{0,31})@|https?:\/\/)([\w\.\-@]+)[\/:](([\~,\.\w,\-,\_,\/,\s]|%[0-9A-Fa-f]{2})+?(?:\.git|\/)?)$/;
+    const throwErr = msg => {
+        const err = new Error(msg);
+        err.subject_url = url;
+        throw err
+    };
 
-  if (url.length > parseUrl.MAX_INPUT_LENGTH) {
-    throwErr(
-      "Input exceeds maximum length. If needed, change the value of parseUrl.MAX_INPUT_LENGTH."
-    );
-  }
-
-  if (normalize) {
-    if (typeof normalize !== "object") {
-      normalize = {
-        stripHash: false,
-      };
+    if (typeof url !== "string" || !url.trim()) {
+        throwErr("Invalid url.");
     }
-    url = normalizeUrl(url, normalize);
-  }
 
-  const parsed = parsePath(url);
-
-  // Potential git-ssh urls
-  if (parsed.parse_failed) {
-    const matched = parsed.href.match(GIT_RE);
-
-    if (matched) {
-      parsed.protocols = ["ssh"];
-      parsed.protocol = "ssh";
-      parsed.resource = matched[2];
-      parsed.host = matched[2];
-      parsed.user = matched[1];
-      parsed.pathname = `/${matched[3]}`;
-      parsed.parse_failed = false;
-    } else {
-      throwErr("URL parsing failed.");
+    if (url.length > parseUrl.MAX_INPUT_LENGTH) {
+        throwErr("Input exceeds maximum length. If needed, change the value of parseUrl.MAX_INPUT_LENGTH.");
     }
-  }
 
-  return parsed;
+    if (normalize) {
+        if (typeof normalize !== "object") {
+            normalize = {
+                stripHash: false
+            };
+        }
+        url = normalizeUrl(url, normalize);
+    }
+
+    const parsed = parsePath(url);
+
+    // Potential git-ssh urls
+    if (parsed.parse_failed) {
+        const matched = parsed.href.match(GIT_RE);
+
+        if (matched) {
+            parsed.protocols = ["ssh"];
+            parsed.protocol = "ssh";
+            parsed.resource = matched[2];
+            parsed.host = matched[2];
+            parsed.user = matched[1];
+            parsed.pathname = `/${matched[3]}`;
+            parsed.parse_failed = false;
+        } else {
+            throwErr("URL parsing failed.");
+        }
+    }
+
+    return parsed;
 };
 
 parseUrl.MAX_INPUT_LENGTH = 2048;
