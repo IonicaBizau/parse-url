@@ -24,6 +24,7 @@ import normalizeUrl from "normalize-url";
  *    - `protocol` (String): The first protocol, `"ssh"` (if the url is a ssh url) or `"file"`.
  *    - `port` (null|Number): The domain port.
  *    - `resource` (String): The url domain (including subdomains).
+ *    - `host` (String):  The fully qualified domain name of a network host, or its IP address.
  *    - `user` (String): The authentication user (usually for ssh urls).
  *    - `pathname` (String): The url pathname.
  *    - `hash` (String): The url hash.
