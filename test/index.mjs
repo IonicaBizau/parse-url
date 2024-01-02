@@ -1,7 +1,8 @@
 // Dependencies
+
+import normalizeUrl from "normalize-url";
 import parseUrl from "../dist/index.js";
 import tester from "tester";
-import normalizeUrl from "normalize-url";
 
 const INPUTS = [
     [
@@ -165,7 +166,127 @@ const INPUTS = [
         , query: {}
         , parse_failed: false
       }
-  ]
+  ],
+  [
+    [
+      "git@ssh.dev.azure.com:v3/ORG/My-Project/repo",
+      false,
+    ],
+    {
+      protocols: ["ssh"],
+      protocol: "ssh",
+      port: "",
+      resource: "ssh.dev.azure.com",
+      host: "ssh.dev.azure.com",
+      user: "git",
+      password: "",
+      pathname: "/v3/ORG/My-Project/repo",
+      hash: "",
+      search: "",
+      query: {},
+      parse_failed: false,
+    },
+  ],
+  [
+    [
+      "git@ssh.dev.azure.com:v3/ORG/My%20Project/repo",
+      false,
+    ],
+    {
+      protocols: ["ssh"],
+      protocol: "ssh",
+      port: "",
+      resource: "ssh.dev.azure.com",
+      host: "ssh.dev.azure.com",
+      user: "git",
+      password: "",
+      pathname: "/v3/ORG/My%20Project/repo",
+      hash: "",
+      search: "",
+      query: {},
+      parse_failed: false,
+    },
+  ],
+  [
+    [
+      "git@ssh.dev.azure.com:v3/ORG/My Project/repo",
+      false,
+    ],
+    {
+      protocols: ["ssh"],
+      protocol: "ssh",
+      port: "",
+      resource: "ssh.dev.azure.com",
+      host: "ssh.dev.azure.com",
+      user: "git",
+      password: "",
+      pathname: "/v3/ORG/My Project/repo",
+      hash: "",
+      search: "",
+      query: {},
+      parse_failed: false,
+    },
+  ],
+  [
+    [
+      "git@ssh.dev.azure.com:v3/ORG/My-Project/repo",
+      false,
+    ],
+    {
+      protocols: ["ssh"],
+      protocol: "ssh",
+      port: "",
+      resource: "ssh.dev.azure.com",
+      host: "ssh.dev.azure.com",
+      user: "git",
+      password: "",
+      pathname: "/v3/ORG/My-Project/repo",
+      hash: "",
+      search: "",
+      query: {},
+      parse_failed: false,
+    },
+  ],
+  [
+    [
+      "https://ORG@dev.azure.com/ORG/My%20Project/_git/repo",
+      false,
+    ],
+    {
+      protocols: ["https"],
+      protocol: "https",
+      port: "",
+      resource: "dev.azure.com",
+      host: "dev.azure.com",
+      user: "ORG",
+      password: "",
+      pathname: "/ORG/My%20Project/_git/repo",
+      hash: "",
+      search: "",
+      query: {},
+      parse_failed: false,
+    },
+  ],
+  [
+    [
+      "https://ORG@dev.azure.com/ORG/My-Project/_git/repo",
+      false,
+    ],
+    {
+      protocols: ["https"],
+      protocol: "https",
+      port: "",
+      resource: "dev.azure.com",
+      host: "dev.azure.com",
+      user: "ORG",
+      password: "",
+      pathname: "/ORG/My-Project/_git/repo",
+      hash: "",
+      search: "",
+      query: {},
+      parse_failed: false,
+    },
+  ],
 ];
 
 tester.describe("check urls", test => {

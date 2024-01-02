@@ -6,12 +6,14 @@
   "module": "./dist/index.mjs",
   "types": "./index.d.ts",
   "exports": {
-    "types": {
-      "require": "./index.d.ts",
-      "import": "./index.d.mts"
+    "require": {
+      "types": "./index.d.ts",
+      "default": "./dist/index.js"
     },
-    "require": "./dist/index.js",
-    "import": "./dist/index.mjs"
+    "import": {
+      "types": "./index.d.mts",
+      "default": "./dist/index.mjs"
+    }
   },
   "directories": {
     "example": "example",
