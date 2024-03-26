@@ -249,6 +249,26 @@ const INPUTS = [
   ],
   [
     [
+      "ORG@vs-ssh.visualstudio.com:v3/ORG/My-Project/repo",
+      false,
+    ],
+    {
+      protocols: ["ssh"],
+      protocol: "ssh",
+      port: "",
+      resource: "vs-ssh.visualstudio.com",
+      host: "vs-ssh.visualstudio.com",
+      user: "ORG",
+      password: "",
+      pathname: "/v3/ORG/My-Project/repo",
+      hash: "",
+      search: "",
+      query: {},
+      parse_failed: false,
+    },
+  ],
+  [
+    [
       "https://ORG@dev.azure.com/ORG/My%20Project/_git/repo",
       false,
     ],
