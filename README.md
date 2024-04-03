@@ -77,7 +77,7 @@ yarn add parse-url
 
 ```js
 // Dependencies
-import parseUrl from "../lib/index.js";
+import parseUrl from "parse-url";
 
 console.log(parseUrl("http://ionicabizau.net/blog"))
 // {
@@ -264,14 +264,12 @@ If you are using this library in one of your projects, add it in this list. :spa
 
  - `@_nomtek/react-native-shimmer-animation`
  - `@aabelmann/ui-layer`
- - `@adembacaj/react-native-google-pay`
  - `@ali5049/react-native-buttons`
- - `@amiruldev/wajs`
+ - `@amirdiafi/react-native-ios-haptics`
  - `@angga30prabu/wa-modified`
  - `@apardellass/react-native-audio-stream`
  - `@aysea/react-native-ui-library`
  - `@azalpacir/react-native-dhp-printer`
- - `@blusalt-sdk/react-native-blusalt-document-verification`
  - `@brantalikp/rn-resize`
  - `@buganto/client`
  - `@con-test/react-native-concent-common`
@@ -280,56 +278,46 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `@dataparty/api`
  - `@enkeledi/react-native-week-month-date-picker`
  - `@extrieve_technologies/quickcapture_react_native`
- - `@felipesimmi/react-native-datalogic-module`
  - `@foundernetes/machines`
  - `@foundernetes/metal-debian`
  - `@geeky-apo/react-native-advanced-clipboard`
- - `@hawkingnetwork/react-native-tab-view`
  - `@hbglobal/react-native-actions-shortcuts`
- - `@hemith/react-native-tnk`
  - `@heycharge/heycharge-react-native-sdk`
  - `@hieuquang2212/form`
  - `@hstech/utils`
  - `@idas1/ui-component-lib`
  - `@jfilipe-sparta/react-native-module_2`
- - `@jprustv/sulla-hotfix`
+ - `@jimengio/mocked-proxy`
  - `@klevn/solid-router`
- - `@kriblet/wa-automate`
  - `@lakutata-module/service`
- - `@lehuyaa/my-assets`
- - `@mergulhao/wa-automate`
- - `@navabi/react-native-ssl-pinning`
- - `@notnuzzel/crawl`
+ - `@mockswitch/cli`
+ - `@ndla/source-map-resolver`
  - `@npm_fluentco/adflow-react-native-sdk`
  - `@oiti/rn-liveness2d`
  - `@open-wa/wa-automate`
- - `@parallelnft/web3modal`
  - `@phpboyscout/semantic-release-gitlab`
- - `@podpodium/common`
+ - `@phuocnb/semrelease-gitlab`
  - `@positionex/position-sdk`
  - `@praella/localisationist`
  - `@qiwi/sourcecrumbs`
- - `@react-18-pdf/root`
  - `@react-native-ui-design/button`
  - `@roq/ui-react`
  - `@roshub/api`
  - `@saad27/react-native-bottom-tab-tour`
- - `@safely-project/safely-ts`
  - `@semantic-release/gitlab`
  - `@sephriot/react-native-persistable-uri`
  - `@sidghimire/react-native-mapbox-navigation`
- - `@status-im/react-native-transparent-video`
  - `@taingo97/react-native-awesome-module`
  - `@taingo97/react-native-bluetooth-xprinter`
  - `@taingo97/react-native-expo-key-rsa-kt`
- - `@taingo97/react-native-expo-rsa`
  - `@taingo97/react-native-generate-key-rsa`
  - `@taingo97/react-native-key-rsa`
  - `@taingo97/react-native-print-xprinter`
- - `@taingo97/react-native-rsa`
  - `@taingo97/react-native-rsa-expo`
  - `@taingo97/react-native-sunmi-printer`
  - `@taingo97/react-native-telpo-printer`
+ - `@teles1-semantic-release/gitlab`
+ - `@thinxviewx/core-rn`
  - `@tomw2w/my-nuxt-layer`
  - `@valifysolutions/react-native-vidvliveness`
  - `@wecraftapps/react-native-use-keyboard`
@@ -367,6 +355,7 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `fluent.adflow.reactnativesdk-alpha`
  - `fmsl`
  - `framework_test_library_sixdee`
+ - `framework_test_library_sixdee_new`
  - `framework_test_library_sixdee_new_new`
  - `fuge-runner`
  - `gamification-integration-new`
@@ -387,7 +376,6 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `jordy-frijters-test-lib`
  - `kakapo`
  - `khaled-salem-custom-components`
- - `l2forlerna`
  - `luojia-cli-dev`
  - `markdownalint-cli2`
  - `michael-stun`
@@ -404,12 +392,10 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `njs-wa-auto`
  - `normalize-id`
  - `normalize-ssh`
- - `normalize-ssh-url`
  - `npm_one_12_34_1_`
  - `npm_one_1_2_3`
  - `npm_one_2_2`
  - `npm_qwerty`
- - `nuxtpaginations`
  - `parse-db-uri`
  - `pasbeaucoupmoinsrave`
  - `payutesting`
@@ -429,8 +415,10 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `react-native-arunjeyam1987`
  - `react-native-arunmeena1987`
  - `react-native-arunramya151`
+ - `react-native-auth-service-client`
  - `react-native-aventonfacetec-aventon`
  - `react-native-awesome-android-123`
+ - `react-native-awesome-android-123-zeotap`
  - `react-native-awesome-module-latest`
  - `react-native-awesome-module-two`
  - `react-native-azure-communication-services`
@@ -481,9 +469,12 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `react-native-multiplier-altroncoso`
  - `react-native-multiplier-component`
  - `react-native-multiplier-demo`
+ - `react-native-multiplier2`
  - `react-native-multiply`
  - `react-native-multiply-component`
+ - `react-native-multiselector`
  - `react-native-mun-kit`
+ - `react-native-my-first-try-arun-ramya`
  - `react-native-native-audio-engine`
  - `react-native-native-ios-test1`
  - `react-native-nativewind`
@@ -493,6 +484,7 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `react-native-onramp`
  - `react-native-payu-payment-testing`
  - `react-native-plugpag-wrapper`
+ - `react-native-progress-arrow`
  - `react-native-pulsator-native`
  - `react-native-rabbitmq-all`
  - `react-native-radio-bic-group-lib`
@@ -514,9 +506,6 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `react-native-simple-timeline`
  - `react-native-sixdee_test_lib`
  - `react-native-sp-test-common`
- - `react-native-syan-photo-picker`
- - `react-native-teads-sdk-module`
- - `react-native-tejab41097-sample-library`
  - `react-native-teknoctrl-components`
  - `react-native-test-comlibrary`
  - `react-native-test-module-hhh`
@@ -525,17 +514,19 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `react-native-tone-framework`
  - `react-native-transtracker-library`
  - `react-native-ui-components-library`
+ - `react-native-uvc-camera-android`
  - `react-native-version-app`
+ - `react-native-volume-phisical`
  - `react-native-withframework-check`
  - `react-native-wtf`
  - `react-native-xiaomi-permissions`
  - `react-native-xprinter-thermal-ble`
+ - `react-native-ytximkit`
  - `reactnatively`
  - `reat-native-multiplierkpr`
  - `refinejs-repo`
  - `rn-adyen-dropin`
  - `rn-agora-ios-m`
- - `rn-check-btn`
  - `rn-circular-chart`
  - `rn-counter-demo`
  - `rn-session-multiplier-demo`
@@ -543,30 +534,28 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `rn_unique_device_id`
  - `robots-agent`
  - `rocomp`
- - `scout-chatbot-widget`
- - `semantic-release-gitmoji-action`
  - `smart_one_connect`
  - `soajs.repositories`
  - `sourcecrumbs`
  - `stun`
+ - `sushi-sdk-ftm`
  - `test-haptik-lib`
- - `test-library-123`
  - `test-zeo-collect`
  - `ts-scraper`
  - `tumblr-text`
  - `url-local`
- - `verify-aws-sns-signature`
  - `vision-camera-base64-resized`
+ - `vision-camera-plugin-face-detector`
  - `vision-camera-plugin-scan-faces`
  - `vrt-cli`
  - `vue-cli-plugin-ice-builder`
  - `vue-cli-plugin-ut-builder`
  - `wa-frikz`
+ - `wander-cli`
  - `warp-api`
  - `warp-server`
  - `web-yii2`
  - `wifi_configuration_package`
- - `winx-form-winx`
  - `workpad`
  - `xbuilder-forms`
  - `xl-git-up`
