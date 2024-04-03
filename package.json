@@ -1,6 +1,6 @@
 {
   "name": "parse-url",
-  "version": "9.0.2",
+  "version": "9.1.0",
   "description": "An advanced url parser supporting git urls too.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
