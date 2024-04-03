@@ -49,6 +49,18 @@ For low-level path parsing, check out [`parse-path`](https://github.com/IonicaBi
 
 
 
+## :cloud: Installation
+
+```sh
+# Using npm
+npm install --save parse-url
+
+# Using yarn
+yarn add parse-url
+```
+
+
+
 
 
 
@@ -139,6 +151,7 @@ console.log(parseUrl("git@github.com:IonicaBizau/git-stats.git", false))
 
 
 
+
 ## :question: Get Help
 
 There are few ways to get help:
@@ -150,6 +163,51 @@ There are few ways to get help:
  3. For direct and quick help, you can [use Codementor](https://www.codementor.io/johnnyb). :rocket:
 
 
+
+
+
+
+
+## :memo: Documentation
+
+
+### `interopDefaultLegacy()`
+#__PURE__
+
+### `parseUrl(url, normalize)`
+Parses the input url.
+
+**Note**: This *throws* if invalid urls are provided.
+
+#### Params
+
+- **String** `url`: The input url.
+- **Boolean|Object** `normalize`: Whether to normalize the url or not.                         Default is `false`. If `true`, the url will
+                        be normalized. If an object, it will be the
+                        options object sent to [`normalize-url`](https://github.com/sindresorhus/normalize-url).
+
+                        For SSH urls, normalize won't work.
+
+#### Return
+- **Object** An object containing the following fields:
+   - `protocols` (Array): An array with the url protocols (usually it has one element).
+   - `protocol` (String): The first protocol, `"ssh"` (if the url is a ssh url) or `"file"`.
+   - `port` (null|Number): The domain port.
+   - `resource` (String): The url domain (including subdomains).
+   - `host` (String):  The fully qualified domain name of a network host, or its IP address.
+   - `user` (String): The authentication user (usually for ssh urls).
+   - `pathname` (String): The url pathname.
+   - `hash` (String): The url hash.
+   - `search` (String): The url querystring value.
+   - `href` (String): The input url.
+   - `query` (Object): The url querystring, parsed as object.
+   - `parse_failed` (Boolean): Whether the parsing failed or not.
+
+### GIT_RE
+
+([a-zA-Z_][a-zA-Z0-9_-]{0,31}) Try to match the user
+([\w\.\-@]+) Match the host/resource
+(([\~,\.\w,\-,\_,\/,\s]|%[0-9A-Fa-f]{2})+?(?:\.git|\/)?) Match the path, allowing spaces/white
 
 
 
@@ -198,6 +256,309 @@ Thanks! :heart:
 
 
 
+
+
+
+## :dizzy: Where is this library used?
+If you are using this library in one of your projects, add it in this list. :sparkles:
+
+ - `@_nomtek/react-native-shimmer-animation`
+ - `@aabelmann/ui-layer`
+ - `@adembacaj/react-native-google-pay`
+ - `@ali5049/react-native-buttons`
+ - `@angga30prabu/wa-modified`
+ - `@apardellass/react-native-audio-stream`
+ - `@aysea/react-native-ui-library`
+ - `@azalpacir/react-native-dhp-printer`
+ - `@brantalikp/rn-resize`
+ - `@buganto/client`
+ - `@con-test/react-native-concent-common`
+ - `@corelmax/react-native-my2c2p-sdk`
+ - `@cs6/react-native-test-native-view-library`
+ - `@damruravihara/react-native-testing-package`
+ - `@dataparty/api`
+ - `@enkeledi/react-native-week-month-date-picker`
+ - `@extrieve_technologies/quickcapture_react_native`
+ - `@felipesimmi/react-native-datalogic-module`
+ - `@foundernetes/machines`
+ - `@foundernetes/metal-debian`
+ - `@geeky-apo/react-native-advanced-clipboard`
+ - `@hawkingnetwork/react-native-tab-view`
+ - `@hbglobal/react-native-actions-shortcuts`
+ - `@heycharge/heycharge-react-native-sdk`
+ - `@hieuquang2212/form`
+ - `@hstech/utils`
+ - `@idas1/ui-component-lib`
+ - `@jfilipe-sparta/react-native-module_2`
+ - `@jprustv/sulla-hotfix`
+ - `@klevn/solid-router`
+ - `@lakutata-module/service`
+ - `@mergulhao/wa-automate`
+ - `@navabi/react-native-ssl-pinning`
+ - `@npm_fluentco/adflow-react-native-sdk`
+ - `@oiti/rn-liveness2d`
+ - `@open-wa/wa-automate`
+ - `@phpboyscout/semantic-release-gitlab`
+ - `@podpodium/common`
+ - `@positionex/position-sdk`
+ - `@praella/localisationist`
+ - `@qiwi/sourcecrumbs`
+ - `@react-18-pdf/root`
+ - `@react-native-ui-design/button`
+ - `@roq/ui-react`
+ - `@roshub/api`
+ - `@saad27/react-native-bottom-tab-tour`
+ - `@semantic-release/gitlab`
+ - `@sephriot/react-native-persistable-uri`
+ - `@sidghimire/react-native-mapbox-navigation`
+ - `@taingo97/react-native-awesome-module`
+ - `@taingo97/react-native-bluetooth-xprinter`
+ - `@taingo97/react-native-expo-key-rsa-kt`
+ - `@taingo97/react-native-generate-key-rsa`
+ - `@taingo97/react-native-key-rsa`
+ - `@taingo97/react-native-print-xprinter`
+ - `@taingo97/react-native-rsa-expo`
+ - `@taingo97/react-native-sunmi-printer`
+ - `@taingo97/react-native-telpo-printer`
+ - `@thinxviewx/core-rn`
+ - `@tomw2w/my-nuxt-layer`
+ - `@valifysolutions/react-native-vidvliveness`
+ - `@wecraftapps/react-native-use-keyboard`
+ - `agent-get-agent`
+ - `angularvezba`
+ - `apaas-track`
+ - `api-reach-react-native-fix`
+ - `archlibrary`
+ - `arifbudixz`
+ - `astra-ufo-sdk`
+ - `awesome-module-kd`
+ - `ba-js-cookie-banner`
+ - `begg`
+ - `bilibili2local`
+ - `biometric-st`
+ - `birken-react-native-community-image-editor`
+ - `blitzzz`
+ - `build-plugin-ssr`
+ - `candlelabssdk`
+ - `checkbox-component`
+ - `cli-live-tutorial`
+ - `delta-screen`
+ - `demo-test-scrn`
+ - `deploy-versioning`
+ - `design-system-trial-milyasbpa`
+ - `dogandev-simple-toast`
+ - `egg-muc-custom-loader`
+ - `electron-info`
+ - `eval-spider`
+ - `expo-renavigate`
+ - `fawaterak-online-payment`
+ - `fawatrak-online-payment`
+ - `fixed_form_builder`
+ - `fluent.adflow.reactnativesdk`
+ - `fluent.adflow.reactnativesdk-alpha`
+ - `fmsl`
+ - `framework_test_library_sixdee`
+ - `framework_test_library_sixdee_new_new`
+ - `fuge-runner`
+ - `gamification-integration-new`
+ - `gaurav-react-native-loop`
+ - `generator-bootstrap-boilerplate-template`
+ - `genz-native-elements`
+ - `get-tarball-cli`
+ - `gh-monoproject-cli`
+ - `git-up`
+ - `gitlab-backup-util-harduino`
+ - `graphmilker`
+ - `griffin-ui-library`
+ - `heroku-wp-environment-sync`
+ - `hologit`
+ - `hong1-utils`
+ - `hubot-will-it-connect`
+ - `hui-plugin-wss`
+ - `ipsamvel`
+ - `jamuskalim`
+ - `jordy-frijters-test-lib`
+ - `jrennsoh88-react-native-scroll-indicator`
+ - `kakapo`
+ - `khaled-salem-custom-components`
+ - `l2forlerna`
+ - `luojia-cli-dev`
+ - `markdownalint-cli2`
+ - `michael-stun`
+ - `microbe.js`
+ - `miguelcostero-ng2-toasty`
+ - `native-apple-login`
+ - `native-date-picker-module`
+ - `native-google-login`
+ - `native-kakao-login`
+ - `native-modal-damage-vehicle`
+ - `native-zip`
+ - `ndla-source-map-resolver`
+ - `new-awesome-4321`
+ - `njs-wa-auto`
+ - `normalize-id`
+ - `normalize-ssh`
+ - `normalize-ssh-url`
+ - `npm_one_12_34_1_`
+ - `npm_one_1_2_3`
+ - `npm_one_2_2`
+ - `nuxtpaginations`
+ - `parse-db-uri`
+ - `pasbeaucoupmoinsrave`
+ - `payutesting`
+ - `pnm-yph-react-native-custom-components`
+ - `project-wajs-dv`
+ - `pyreswap-sdk`
+ - `quickcapture_react_native`
+ - `raact-native-arunramya151`
+ - `reac-native-arun-ramya-test`
+ - `react-native-addition`
+ - `react-native-android-video-player-view`
+ - `react-native-animate-text`
+ - `react-native-app-bubble`
+ - `react-native-app-integrity-checksum`
+ - `react-native-arps-authorize-net`
+ - `react-native-arun-ramya-test`
+ - `react-native-arunmeena1987`
+ - `react-native-arunramya151`
+ - `react-native-auth-service-client`
+ - `react-native-aventonfacetec-aventon`
+ - `react-native-awesome-android-123`
+ - `react-native-awesome-android-123-zeotap`
+ - `react-native-awesome-module-latest`
+ - `react-native-azure-communication-services`
+ - `react-native-badge-control`
+ - `react-native-basic-screen`
+ - `react-native-biometric-authenticate`
+ - `react-native-bleccs-components`
+ - `react-native-bluetooth-device-detect`
+ - `react-native-bridge-package`
+ - `react-native-build-vesion-getter`
+ - `react-native-check-component`
+ - `react-native-chenaar`
+ - `react-native-components-design`
+ - `react-native-conekta-card-tokenizer`
+ - `react-native-contact-list`
+ - `react-native-create-video-thumbnail`
+ - `react-native-ctp-odp`
+ - `react-native-dimensions-layout`
+ - `react-native-dsphoto-module`
+ - `react-native-fedlight-dsm`
+ - `react-native-flyy`
+ - `react-native-get-countries`
+ - `react-native-ghn-ekyc`
+ - `react-native-innity-2`
+ - `react-native-is7`
+ - `react-native-jsi-device-info`
+ - `react-native-kakao-maps`
+ - `react-native-klarify-ui`
+ - `react-native-klc`
+ - `react-native-lib-test-rn-1`
+ - `react-native-library-testing-422522`
+ - `react-native-line-login-android`
+ - `react-native-lowlatency`
+ - `react-native-loyalty-platforms`
+ - `react-native-manh-test`
+ - `react-native-manual-ios-sdk`
+ - `react-native-modal-progress-bar`
+ - `react-native-module-arge`
+ - `react-native-module-for-testing`
+ - `react-native-multiplier-altroncoso`
+ - `react-native-multiplier-component`
+ - `react-native-multiplier-demo`
+ - `react-native-multiplier2`
+ - `react-native-multiply`
+ - `react-native-multiply-component`
+ - `react-native-multiselector`
+ - `react-native-mun-kit`
+ - `react-native-my-first-try-arun-ramya`
+ - `react-native-native-audio-engine`
+ - `react-native-native-ios-test1`
+ - `react-native-nativewind`
+ - `react-native-nghia-sharering`
+ - `react-native-nice-learning`
+ - `react-native-omental-framework`
+ - `react-native-onramp`
+ - `react-native-payu-payment-testing`
+ - `react-native-plugpag-wrapper`
+ - `react-native-progress-arrow`
+ - `react-native-pulsator-native`
+ - `react-native-rabbitmq-all`
+ - `react-native-radio-bic-group-lib`
+ - `react-native-reanimated-sortable-list`
+ - `react-native-recent-framework-update`
+ - `react-native-responsive-helper`
+ - `react-native-responsive-size`
+ - `react-native-return-usb-data`
+ - `react-native-rn-app`
+ - `react-native-rn-icons-library`
+ - `react-native-rom-components`
+ - `react-native-sayhello-module`
+ - `react-native-screen-idle-timer`
+ - `react-native-scroll-tab-to-index`
+ - `react-native-shared-gesture`
+ - `react-native-simple-timeline`
+ - `react-native-sixdee_test_lib`
+ - `react-native-sp-test-common`
+ - `react-native-syan-photo-picker`
+ - `react-native-teads-sdk-module`
+ - `react-native-tejab41097-sample-library`
+ - `react-native-teknoctrl-components`
+ - `react-native-test-comlibrary`
+ - `react-native-test-module-hhh`
+ - `react-native-ticker-tape`
+ - `react-native-tone-framework`
+ - `react-native-transtracker-library`
+ - `react-native-ui-components-library`
+ - `react-native-uvc-camera-android`
+ - `react-native-version-app`
+ - `react-native-volume-phisical`
+ - `react-native-withframework-check`
+ - `react-native-wtf`
+ - `react-native-xiaomi-permissions`
+ - `react-native-xprinter-thermal-ble`
+ - `react-native-ytximkit`
+ - `reactnatively`
+ - `reat-native-multiplierkpr`
+ - `refinejs-repo`
+ - `rn-adyen-dropin`
+ - `rn-agora-ios-m`
+ - `rn-check-btn`
+ - `rn-circular-chart`
+ - `rn-counter-demo`
+ - `rn-session-multiplier-demo`
+ - `rn-tm-notify`
+ - `rn_unique_device_id`
+ - `robots-agent`
+ - `rocomp`
+ - `scout-chatbot-widget`
+ - `smart_one_connect`
+ - `soajs.repositories`
+ - `sourcecrumbs`
+ - `stun`
+ - `test-haptik-lib`
+ - `test-library-123`
+ - `test-zeo-collect`
+ - `ts-scraper`
+ - `tumblr-text`
+ - `url-local`
+ - `verify-aws-sns-signature`
+ - `vision-camera-base64-resized`
+ - `vision-camera-plugin-face-detector`
+ - `vision-camera-plugin-scan-faces`
+ - `vrt-cli`
+ - `vue-cli-plugin-ut-builder`
+ - `wa-frikz`
+ - `warp-api`
+ - `warp-server`
+ - `web-yii2`
+ - `wifi_configuration_package`
+ - `winx-form-winx`
+ - `workpad`
+ - `xbuilder-forms`
+ - `xl-git-up`
+ - `yangtao-js`
+ - `zeo-collect`
 
 
 
