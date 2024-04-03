@@ -1,4 +1,34 @@
-import parsePath from 'parse-path';
+import require$$1 from 'parse-path';
+
+function getAugmentedNamespace(n) {
+  if (n.__esModule) return n;
+  var f = n.default;
+	if (typeof f == "function") {
+		var a = function a () {
+			if (this instanceof a) {
+				var args = [null];
+				args.push.apply(args, arguments);
+				var Ctor = Function.bind.apply(f, args);
+				return new Ctor();
+			}
+			return f.apply(this, arguments);
+		};
+		a.prototype = f.prototype;
+  } else a = {};
+  Object.defineProperty(a, '__esModule', {value: true});
+	Object.keys(n).forEach(function (k) {
+		var d = Object.getOwnPropertyDescriptor(n, k);
+		Object.defineProperty(a, k, d.get ? d : {
+			enumerable: true,
+			get: function () {
+				return n[k];
+			}
+		});
+	});
+	return a;
+}
+
+var src = {};
 
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
 const DATA_URL_DEFAULT_MIME_TYPE = 'text/plain';
@@ -247,7 +277,28 @@ function normalizeUrl(urlString, options) {
 	return urlString;
 }
 
-// Dependencies
+var normalizeUrl$1 = /*#__PURE__*/Object.freeze({
+	__proto__: null,
+	'default': normalizeUrl
+});
+
+var require$$0 = /*@__PURE__*/getAugmentedNamespace(normalizeUrl$1);
+
+Object.defineProperty(src, "__esModule", {
+    value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; // Dependencies
+
+var _normalizeUrl = require$$0;
+
+var _normalizeUrl2 = _interopRequireDefault(_normalizeUrl);
+
+var _parsePath = require$$1;
+
+var _parsePath2 = _interopRequireDefault(_parsePath);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * parseUrl
@@ -280,7 +331,9 @@ function normalizeUrl(urlString, options) {
  *    - `query` (Object): The url querystring, parsed as object.
  *    - `parse_failed` (Boolean): Whether the parsing failed or not.
  */
-const parseUrl = (url, normalize = false) => {
+var parseUrl = function parseUrl(url) {
+    var normalize = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
 
     // Constants
     /**
@@ -288,12 +341,12 @@ const parseUrl = (url, normalize = false) => {
      * ([\w\.\-@]+) Match the host/resource
      * (([\~,\.\w,\-,\_,\/,\s]|%[0-9A-Fa-f]{2})+?(?:\.git|\/)?) Match the path, allowing spaces/white 
      */
-    const GIT_RE = /^(?:([a-zA-Z_][a-zA-Z0-9_-]{0,31})@|https?:\/\/)([\w\.\-@]+)[\/:](([\~,\.\w,\-,\_,\/,\s]|%[0-9A-Fa-f]{2})+?(?:\.git|\/)?)$/;
-    
-    const throwErr = msg => {
-        const err = new Error(msg);
+    var GIT_RE = /^(?:([a-zA-Z_][a-zA-Z0-9_-]{0,31})@|https?:\/\/)([\w\.\-@]+)[\/:](([\~,\.\w,\-,\_,\/,\s]|%[0-9A-Fa-f]{2})+?(?:\.git|\/)?)$/;
+
+    var throwErr = function throwErr(msg) {
+        var err = new Error(msg);
         err.subject_url = url;
-        throw err
+        throw err;
     };
 
     if (typeof url !== "string" || !url.trim()) {
@@ -305,19 +358,19 @@ const parseUrl = (url, normalize = false) => {
     }
 
     if (normalize) {
-        if (typeof normalize !== "object") {
+        if ((typeof normalize === "undefined" ? "undefined" : _typeof(normalize)) !== "object") {
             normalize = {
                 stripHash: false
             };
         }
-        url = normalizeUrl(url, normalize);
+        url = (0, _normalizeUrl2.default)(url, normalize);
     }
 
-    const parsed = parsePath(url);
+    var parsed = (0, _parsePath2.default)(url);
 
     // Potential git-ssh urls
     if (parsed.parse_failed) {
-        const matched = parsed.href.match(GIT_RE);
+        var matched = parsed.href.match(GIT_RE);
 
         if (matched) {
             parsed.protocols = ["ssh"];
@@ -325,7 +378,7 @@ const parseUrl = (url, normalize = false) => {
             parsed.resource = matched[2];
             parsed.host = matched[2];
             parsed.user = matched[1];
-            parsed.pathname = `/${matched[3]}`;
+            parsed.pathname = "/" + matched[3];
             parsed.parse_failed = false;
         } else {
             throwErr("URL parsing failed.");
@@ -337,4 +390,6 @@ const parseUrl = (url, normalize = false) => {
 
 parseUrl.MAX_INPUT_LENGTH = 2048;
 
-export { parseUrl as default };
+var _default = src.default = parseUrl;
+
+export { _default as default };
