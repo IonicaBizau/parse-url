@@ -1,6 +1,6 @@
 {
   "name": "parse-url",
-  "version": "9.2.0",
+  "version": "9.2.1",
   "description": "An advanced url parser supporting git urls too.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -62,7 +62,7 @@
     "cli.js",
     "index.js",
     "index.d.ts",
-    "index.d.mts",
+    "package-lock.json",
     "bloggify.js",
     "bloggify.json",
     "bloggify/"

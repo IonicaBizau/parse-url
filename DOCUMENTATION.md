@@ -5,6 +5,10 @@ You can see below the API reference of this module.
 ### `interopDefaultLegacy()`
 #__PURE__
 
+#__PURE__
+
+### `etAugmentedNamespace()`
+
 ### `parseUrl(url, normalize)`
 Parses the input url.
 
