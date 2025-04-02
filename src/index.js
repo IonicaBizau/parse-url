@@ -23,7 +23,7 @@ import parsePath from "parse-path";
  *
  *    - `protocols` (Array): An array with the url protocols (usually it has one element).
  *    - `protocol` (String): The first protocol, `"ssh"` (if the url is a ssh url) or `"file"`.
- *    - `port` (null|Number): The domain port.
+ *    - `port` (String): The domain port.
  *    - `resource` (String): The url domain (including subdomains).
  *    - `host` (String):  The fully qualified domain name of a network host, or its IP address.
  *    - `user` (String): The authentication user (usually for ssh urls).
