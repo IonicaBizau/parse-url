@@ -47,8 +47,7 @@
     "tsd": "^0.24.1"
   },
   "dependencies": {
-    "@types/parse-path": "^7.0.0",
-    "parse-path": "^7.0.0"
+    "parse-path": "^7.0.2"
   },
   "files": [
     "bin/",
