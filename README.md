@@ -151,53 +151,6 @@ console.log(parseUrl("git@github.com:IonicaBizau/git-stats.git", false))
 
 
 
-## :memo: Documentation
-
-
-### `interopDefaultLegacy()`
-#__PURE__
-
-#__PURE__
-
-### `etAugmentedNamespace()`
-
-### `parseUrl(url, normalize)`
-Parses the input url.
-
-**Note**: This *throws* if invalid urls are provided.
-
-#### Params
-
-- **String** `url`: The input url.
-- **Boolean|Object** `normalize`: Whether to normalize the url or not.                         Default is `false`. If `true`, the url will
-                        be normalized. If an object, it will be the
-                        options object sent to [`normalize-url`](https://github.com/sindresorhus/normalize-url).
-
-                        For SSH urls, normalize won't work.
-
-#### Return
-- **Object** An object containing the following fields:
-   - `protocols` (Array): An array with the url protocols (usually it has one element).
-   - `protocol` (String): The first protocol, `"ssh"` (if the url is a ssh url) or `"file"`.
-   - `port` (null|Number): The domain port.
-   - `resource` (String): The url domain (including subdomains).
-   - `host` (String):  The fully qualified domain name of a network host, or its IP address.
-   - `user` (String): The authentication user (usually for ssh urls).
-   - `pathname` (String): The url pathname.
-   - `hash` (String): The url hash.
-   - `search` (String): The url querystring value.
-   - `href` (String): The input url.
-   - `query` (Object): The url querystring, parsed as object.
-   - `parse_failed` (Boolean): Whether the parsing failed or not.
-
-### GIT_RE
-
-([a-zA-Z_][a-zA-Z0-9_-]{0,31}) Try to match the user
-([\w\.\-@]+) Match the host/resource
-(([\~,\.\w,\-,\_,\/,\s]|%[0-9A-Fa-f]{2})+?(?:\.git|\/)?) Match the path, allowing spaces/white
-
-
-
 
 
 
@@ -278,6 +231,7 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `@amiruldev/wajs`
  - `@angga30prabu/wa-modified`
  - `@apardellass/react-native-audio-stream`
+ - `@appconda/app`
  - `@appconda/next`
  - `@aysea/react-native-ui-library`
  - `@azalpacir/react-native-dhp-printer`
@@ -288,7 +242,6 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `@cs6/react-native-test-native-view-library`
  - `@damruravihara/react-native-testing-package`
  - `@dataparty/api`
- - `@drakedeatonuk/rschedule`
  - `@enkeledi/react-native-week-month-date-picker`
  - `@felipesimmi/react-native-datalogic-module`
  - `@foundernetes/machines`
@@ -315,7 +268,6 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `@mergulhao/wa-automate`
  - `@mockswitch/cli`
  - `@navabi/react-native-ssl-pinning`
- - `@ndla/source-map-resolver`
  - `@notnuzzel/crawl`
  - `@oiti/rn-liveness2d`
  - `@open-wa/wa-automate`
@@ -390,7 +342,6 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `deploy-versioning`
  - `design-system-trial-milyasbpa`
  - `dogandev-simple-toast`
- - `domaincomponent`
  - `egg-muc-custom-loader`
  - `eval-spider`
  - `fawaterak-online-payment`
@@ -453,6 +404,7 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `npm_one_2_2`
  - `npm_qwerty`
  - `nuxtpaginations`
+ - `octopulse`
  - `parse-db-uri`
  - `pasbeaucoupmoinsrave`
  - `patepangdeui`
@@ -512,7 +464,6 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `react-native-dummy-view`
  - `react-native-escape`
  - `react-native-fedlight-dsm`
- - `react-native-flyy`
  - `react-native-get-countries`
  - `react-native-ghn-ekyc`
  - `react-native-ideo-rn-notifications`
@@ -603,6 +554,7 @@ If you are using this library in one of your projects, add it in this list. :spa
  - `react-native-transtracker-library`
  - `react-native-ui-components-library`
  - `react-native-uvc-camera-android`
+ - `react-native-vanguard-sdk`
  - `react-native-version-app`
  - `react-native-volume-phisical`
  - `react-native-withframework-check`
