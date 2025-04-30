@@ -61,6 +61,7 @@
     "cli.js",
     "index.js",
     "index.d.ts",
+    "index.d.mts",
     "package-lock.json",
     "bloggify.js",
     "bloggify.json",
