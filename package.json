@@ -41,12 +41,12 @@
   },
   "homepage": "https://github.com/IonicaBizau/parse-url",
   "devDependencies": {
-    "normalize-url": "^8.0.1",
     "pkgroll": "^2.12.2",
     "tester": "^1.4.6",
     "tsd": "^0.32.0"
   },
   "dependencies": {
+    "normalize-url": "^8.0.1",
     "parse-path": "^7.1.0"
   },
   "files": [
