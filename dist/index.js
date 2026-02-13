@@ -195,7 +195,7 @@ function normalizeUrl(urlString, options) {
   return urlString;
 }
 
-/*!
+/**
  * parseUrl
  * Parses the input url.
  *
