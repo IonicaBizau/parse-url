@@ -307,6 +307,67 @@ const INPUTS = [
       parse_failed: false,
     },
   ],
+  // SSH URLs with hash fragments
+  [
+    [
+      "git@github.com:IonicaBizau/git-stats.git#v1.0.0",
+      false,
+    ],
+    {
+      protocols: ["ssh"],
+      protocol: "ssh",
+      port: "",
+      resource: "github.com",
+      host: "github.com",
+      user: "git",
+      password: "",
+      pathname: "/IonicaBizau/git-stats.git",
+      hash: "v1.0.0",
+      search: "",
+      query: {},
+      parse_failed: false,
+    },
+  ],
+  [
+    [
+      "git@github.com:owner/repo.git#feature/branch",
+      false,
+    ],
+    {
+      protocols: ["ssh"],
+      protocol: "ssh",
+      port: "",
+      resource: "github.com",
+      host: "github.com",
+      user: "git",
+      password: "",
+      pathname: "/owner/repo.git",
+      hash: "feature/branch",
+      search: "",
+      query: {},
+      parse_failed: false,
+    },
+  ],
+  [
+    [
+      "git@github.com:owner/repo#semver:^1.0.0",
+      false,
+    ],
+    {
+      protocols: ["ssh"],
+      protocol: "ssh",
+      port: "",
+      resource: "github.com",
+      host: "github.com",
+      user: "git",
+      password: "",
+      pathname: "/owner/repo",
+      hash: "semver:^1.0.0",
+      search: "",
+      query: {},
+      parse_failed: false,
+    },
+  ],
 ];
 
 tester.describe("check urls", test => {

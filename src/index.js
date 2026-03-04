@@ -70,7 +70,16 @@ const parseUrl = (url, normalize = false) => {
 
     // Potential git-ssh urls
     if (parsed.parse_failed) {
-        const matched = parsed.href.match(GIT_RE)
+        // Extract hash fragment before matching, as GIT_RE doesn't handle it
+        let hash = ""
+        let hrefWithoutHash = parsed.href
+        const hashIndex = parsed.href.indexOf("#")
+        if (hashIndex !== -1) {
+            hash = parsed.href.slice(hashIndex + 1)
+            hrefWithoutHash = parsed.href.slice(0, hashIndex)
+        }
+
+        const matched = hrefWithoutHash.match(GIT_RE)
 
         if (matched) {
             parsed.protocols = ["ssh"]
@@ -80,6 +89,10 @@ const parseUrl = (url, normalize = false) => {
             parsed.user = matched[1]
             parsed.pathname = `/${matched[3]}`
             parsed.parse_failed = false
+            parsed.hash = hash
+            if (hash) {
+                parsed.href = `${hrefWithoutHash}#${hash}`
+            }
         } else {
             throwErr("URL parsing failed.")
         }
