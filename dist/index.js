@@ -23,13 +23,11 @@ const normalizeDataURL = (urlString, { stripHash }) => {
   if (!match) {
     throw new Error(`Invalid URL: ${urlString}`);
   }
-  let { type, data, hash } = match.groups;
+  const { type, data, hash } = match.groups;
   const mediaType = type.split(";");
-  hash = stripHash ? "" : hash;
-  let isBase64 = false;
-  if (mediaType[mediaType.length - 1] === "base64") {
+  const isBase64 = mediaType.at(-1) === "base64";
+  if (isBase64) {
     mediaType.pop();
-    isBase64 = true;
   }
   const mimeType = mediaType.shift()?.toLowerCase() ?? "";
   const attributes = mediaType.map((attribute) => {
@@ -42,16 +40,15 @@ const normalizeDataURL = (urlString, { stripHash }) => {
     }
     return `${key}${value ? `=${value}` : ""}`;
   }).filter(Boolean);
-  const normalizedMediaType = [
-    ...attributes
-  ];
+  const normalizedMediaType = [...attributes];
   if (isBase64) {
     normalizedMediaType.push("base64");
   }
   if (normalizedMediaType.length > 0 || mimeType && mimeType !== DATA_URL_DEFAULT_MIME_TYPE) {
     normalizedMediaType.unshift(mimeType);
   }
-  return `data:${normalizedMediaType.join(";")},${isBase64 ? data.trim() : data}${hash ? `#${hash}` : ""}`;
+  const hashPart = stripHash || !hash ? "" : `#${hash}`;
+  return `data:${normalizedMediaType.join(";")},${isBase64 ? data.trim() : data}${hashPart}`;
 };
 function normalizeUrl(urlString, options) {
   options = {
@@ -69,6 +66,8 @@ function normalizeUrl(urlString, options) {
     removeDirectoryIndex: false,
     removeExplicitPort: false,
     sortQueryParameters: true,
+    removePath: false,
+    transformPath: false,
     ...options
   };
   if (typeof options.defaultProtocol === "string" && !options.defaultProtocol.endsWith(":")) {
@@ -127,7 +126,7 @@ function normalizeUrl(urlString, options) {
   }
   if (urlObject.pathname) {
     try {
-      urlObject.pathname = decodeURI(urlObject.pathname);
+      urlObject.pathname = decodeURI(urlObject.pathname).replace(/\\/g, "%5C");
     } catch {
     }
   }
@@ -135,12 +134,20 @@ function normalizeUrl(urlString, options) {
     options.removeDirectoryIndex = [/^index\.[a-z]+$/];
   }
   if (Array.isArray(options.removeDirectoryIndex) && options.removeDirectoryIndex.length > 0) {
-    let pathComponents = urlObject.pathname.split("/");
-    const lastComponent = pathComponents[pathComponents.length - 1];
-    if (testParameter(lastComponent, options.removeDirectoryIndex)) {
-      pathComponents = pathComponents.slice(0, -1);
-      urlObject.pathname = pathComponents.slice(1).join("/") + "/";
+    const pathComponents = urlObject.pathname.split("/").filter(Boolean);
+    const lastComponent = pathComponents.at(-1);
+    if (lastComponent && testParameter(lastComponent, options.removeDirectoryIndex)) {
+      pathComponents.pop();
+      urlObject.pathname = pathComponents.length > 0 ? `/${pathComponents.join("/")}/` : "/";
     }
+  }
+  if (options.removePath) {
+    urlObject.pathname = "/";
+  }
+  if (options.transformPath && typeof options.transformPath === "function") {
+    const pathComponents = urlObject.pathname.split("/").filter(Boolean);
+    const newComponents = options.transformPath(pathComponents);
+    urlObject.pathname = newComponents?.length > 0 ? `/${newComponents.join("/")}` : "/";
   }
   if (urlObject.hostname) {
     urlObject.hostname = urlObject.hostname.replace(/\.$/, "");
@@ -166,10 +173,16 @@ function normalizeUrl(urlString, options) {
     }
   }
   if (options.sortQueryParameters) {
+    const originalSearch = urlObject.search;
     urlObject.searchParams.sort();
     try {
       urlObject.search = decodeURIComponent(urlObject.search);
     } catch {
+    }
+    const partsWithoutEquals = originalSearch.slice(1).split("&").filter((p) => p && !p.includes("="));
+    for (const part of partsWithoutEquals) {
+      const decoded = decodeURIComponent(part);
+      urlObject.search = urlObject.search.replace(`?${decoded}=`, `?${decoded}`).replace(`&${decoded}=`, `&${decoded}`);
     }
   }
   if (options.removeTrailingSlash) {
