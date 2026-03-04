@@ -4,19 +4,137 @@ var parsePath = require('parse-path');
 
 const DATA_URL_DEFAULT_MIME_TYPE = "text/plain";
 const DATA_URL_DEFAULT_CHARSET = "us-ascii";
-const testParameter = (name, filters) => filters.some((filter) => filter instanceof RegExp ? filter.test(name) : filter === name);
+const encodedReservedCharactersPattern = "%(?:3A|2F|3F|23|5B|5D|40|21|24|26|27|28|29|2A|2B|2C|3B|3D)";
+const temporaryEncodedReservedTokenBase = "__normalize_url_encoded_reserved__";
+const temporaryEncodedReservedTokenPattern = /__normalize_url_encoded_reserved__(\d+)__/g;
+const hasEncodedReservedCharactersRegex = new RegExp(encodedReservedCharactersPattern, "i");
+const encodedReservedCharactersRegex = new RegExp(encodedReservedCharactersPattern, "gi");
+const testParameter = (name, filters) => Array.isArray(filters) && filters.some((filter) => {
+  if (filter instanceof RegExp) {
+    if (filter.flags.includes("g") || filter.flags.includes("y")) {
+      return new RegExp(filter.source, filter.flags.replaceAll(/[gy]/g, "")).test(name);
+    }
+    return filter.test(name);
+  }
+  return filter === name;
+});
 const supportedProtocols = /* @__PURE__ */ new Set([
   "https:",
   "http:",
   "file:"
 ]);
-const hasCustomProtocol = (urlString) => {
+const normalizeCustomProtocolOption = (protocol) => {
+  if (typeof protocol !== "string") {
+    return void 0;
+  }
+  const normalizedProtocol = protocol.trim().toLowerCase().replace(/:$/, "");
+  return normalizedProtocol === "" ? void 0 : `${normalizedProtocol}:`;
+};
+const getCustomProtocol = (urlString) => {
   try {
     const { protocol } = new URL(urlString);
-    return protocol.endsWith(":") && !protocol.includes(".") && !supportedProtocols.has(protocol);
+    const hasAuthority = urlString.slice(0, protocol.length + 2).toLowerCase() === `${protocol}//`;
+    if (protocol.endsWith(":") && (!protocol.includes(".") || hasAuthority) && !supportedProtocols.has(protocol)) {
+      return protocol;
+    }
   } catch {
-    return false;
   }
+  return void 0;
+};
+const decodeQueryKey = (value) => {
+  try {
+    return decodeURIComponent(value.replaceAll("+", "%20"));
+  } catch {
+    return new URLSearchParams(`${value}=`).keys().next().value;
+  }
+};
+const getKeysWithoutEquals = (search) => {
+  const keys = /* @__PURE__ */ new Set();
+  if (!search) {
+    return keys;
+  }
+  for (const part of search.slice(1).split("&")) {
+    if (part && !part.includes("=")) {
+      keys.add(decodeQueryKey(part));
+    }
+  }
+  return keys;
+};
+const getTemporaryEncodedReservedTokenPrefix = (search) => {
+  let decodedSearch = search;
+  try {
+    decodedSearch = decodeURIComponent(search);
+  } catch {
+    decodedSearch = new URLSearchParams(search).toString();
+  }
+  const getUsedTokenIndexes = (value) => {
+    const indexes = /* @__PURE__ */ new Set();
+    for (const match of value.matchAll(temporaryEncodedReservedTokenPattern)) {
+      indexes.add(Number.parseInt(match[1], 10));
+    }
+    return indexes;
+  };
+  const usedTokenIndexes = getUsedTokenIndexes(search);
+  for (const tokenIndex2 of getUsedTokenIndexes(decodedSearch)) {
+    usedTokenIndexes.add(tokenIndex2);
+  }
+  let tokenIndex = 0;
+  while (usedTokenIndexes.has(tokenIndex)) {
+    tokenIndex++;
+  }
+  return `${temporaryEncodedReservedTokenBase}${tokenIndex}__`;
+};
+const sortSearchParameters = (searchParameters, encodedReservedTokenRegex) => {
+  if (!encodedReservedTokenRegex) {
+    searchParameters.sort();
+    return searchParameters.toString();
+  }
+  const getSortableKey = (key) => key.replace(encodedReservedTokenRegex, (_, hexCode) => String.fromCodePoint(Number.parseInt(hexCode, 16)));
+  const entries = [...searchParameters.entries()];
+  entries.sort(([leftKey], [rightKey]) => {
+    const left = getSortableKey(leftKey);
+    const right = getSortableKey(rightKey);
+    return left < right ? -1 : left > right ? 1 : 0;
+  });
+  return new URLSearchParams(entries).toString();
+};
+const decodeReservedTokens = (value, encodedReservedTokenRegex) => {
+  if (!encodedReservedTokenRegex) {
+    return value;
+  }
+  return value.replace(encodedReservedTokenRegex, (_, hexCode) => String.fromCodePoint(Number.parseInt(hexCode, 16)));
+};
+const normalizeEmptyQueryParameters = (search, emptyQueryValue, originalSearch) => {
+  const isAlways = emptyQueryValue === "always";
+  const isNever = emptyQueryValue === "never";
+  const keysWithoutEquals = isAlways || isNever ? void 0 : getKeysWithoutEquals(originalSearch);
+  const normalizeKey = (key) => key.replaceAll("+", "%20");
+  const formatEmptyValue = (normalizedKey) => {
+    if (isAlways) {
+      return `${normalizedKey}=`;
+    }
+    if (isNever) {
+      return normalizedKey;
+    }
+    return keysWithoutEquals.has(decodeQueryKey(normalizedKey)) ? normalizedKey : `${normalizedKey}=`;
+  };
+  const normalizeParameter = (parameter) => {
+    const equalIndex = parameter.indexOf("=");
+    if (equalIndex === -1) {
+      return formatEmptyValue(normalizeKey(parameter));
+    }
+    const key = parameter.slice(0, equalIndex);
+    const value = parameter.slice(equalIndex + 1);
+    if (value === "") {
+      if (key === "") {
+        return "=";
+      }
+      return formatEmptyValue(normalizeKey(key));
+    }
+    return `${normalizeKey(key)}=${value}`;
+  };
+  const parameters = search.slice(1).split("&").filter(Boolean);
+  return parameters.length === 0 ? "" : `?${parameters.map((x) => normalizeParameter(x)).join("&")}`;
 };
 const normalizeDataURL = (urlString, { stripHash }) => {
   const match = /^data:(?<type>[^,]*?),(?<data>[^#]*?)(?:#(?<hash>.*))?$/.exec(urlString);
@@ -29,7 +147,7 @@ const normalizeDataURL = (urlString, { stripHash }) => {
   if (isBase64) {
     mediaType.pop();
   }
-  const mimeType = mediaType.shift()?.toLowerCase() ?? "";
+  const mimeType = mediaType.shift().toLowerCase();
   const attributes = mediaType.map((attribute) => {
     let [key, value = ""] = attribute.split("=").map((string) => string.trim());
     if (key === "charset") {
@@ -68,6 +186,7 @@ function normalizeUrl(urlString, options) {
     sortQueryParameters: true,
     removePath: false,
     transformPath: false,
+    emptyQueryValue: "preserve",
     ...options
   };
   if (typeof options.defaultProtocol === "string" && !options.defaultProtocol.endsWith(":")) {
@@ -77,12 +196,15 @@ function normalizeUrl(urlString, options) {
   if (/^data:/i.test(urlString)) {
     return normalizeDataURL(urlString, options);
   }
-  if (hasCustomProtocol(urlString)) {
+  const customProtocols = Array.isArray(options.customProtocols) ? options.customProtocols : [];
+  const normalizedCustomProtocols = new Set(customProtocols.map((protocol) => normalizeCustomProtocolOption(protocol)).filter(Boolean));
+  const customProtocol = getCustomProtocol(urlString);
+  if (customProtocol && !normalizedCustomProtocols.has(customProtocol)) {
     return urlString;
   }
   const hasRelativeProtocol = urlString.startsWith("//");
   const isRelativeUrl = !hasRelativeProtocol && /^\.*\//.test(urlString);
-  if (!isRelativeUrl) {
+  if (!isRelativeUrl && !customProtocol) {
     urlString = urlString.replace(/^(?!(?:\w+:)?\/\/)|^\/\//, options.defaultProtocol);
   }
   const urlObject = new URL(urlString);
@@ -116,17 +238,17 @@ function normalizeUrl(urlString, options) {
       const protocol = match[0];
       const protocolAtIndex = match.index;
       const intermediate = urlObject.pathname.slice(lastIndex, protocolAtIndex);
-      result += intermediate.replace(/\/{2,}/g, "/");
+      result += intermediate.replaceAll(/\/{2,}/g, "/");
       result += protocol;
       lastIndex = protocolAtIndex + protocol.length;
     }
-    const remnant = urlObject.pathname.slice(lastIndex, urlObject.pathname.length);
-    result += remnant.replace(/\/{2,}/g, "/");
+    const remnant = urlObject.pathname.slice(lastIndex);
+    result += remnant.replaceAll(/\/{2,}/g, "/");
     urlObject.pathname = result;
   }
   if (urlObject.pathname) {
     try {
-      urlObject.pathname = decodeURI(urlObject.pathname).replace(/\\/g, "%5C");
+      urlObject.pathname = decodeURI(urlObject.pathname).replaceAll("\\", "%5C");
     } catch {
     }
   }
@@ -155,36 +277,42 @@ function normalizeUrl(urlString, options) {
       urlObject.hostname = urlObject.hostname.replace(/^www\./, "");
     }
   }
-  if (Array.isArray(options.removeQueryParameters)) {
-    for (const key of [...urlObject.searchParams.keys()]) {
-      if (testParameter(key, options.removeQueryParameters)) {
-        urlObject.searchParams.delete(key);
+  const originalSearch = urlObject.search;
+  let encodedReservedTokenRegex;
+  if (options.sortQueryParameters && hasEncodedReservedCharactersRegex.test(originalSearch)) {
+    const encodedReservedTokenPrefix = getTemporaryEncodedReservedTokenPrefix(originalSearch);
+    urlObject.search = originalSearch.replaceAll(encodedReservedCharactersRegex, (match) => `${encodedReservedTokenPrefix}${match.slice(1).toUpperCase()}`);
+    encodedReservedTokenRegex = new RegExp(`${encodedReservedTokenPrefix}([0-9A-F]{2})`, "g");
+  }
+  const hasKeepQueryParameters = Array.isArray(options.keepQueryParameters);
+  const { searchParams } = urlObject;
+  if (!hasKeepQueryParameters && Array.isArray(options.removeQueryParameters) && options.removeQueryParameters.length > 0) {
+    for (const key of [...searchParams.keys()]) {
+      if (testParameter(decodeReservedTokens(key, encodedReservedTokenRegex), options.removeQueryParameters)) {
+        searchParams.delete(key);
       }
     }
   }
-  if (!Array.isArray(options.keepQueryParameters) && options.removeQueryParameters === true) {
+  if (!hasKeepQueryParameters && options.removeQueryParameters === true) {
     urlObject.search = "";
   }
-  if (Array.isArray(options.keepQueryParameters) && options.keepQueryParameters.length > 0) {
-    for (const key of [...urlObject.searchParams.keys()]) {
-      if (!testParameter(key, options.keepQueryParameters)) {
-        urlObject.searchParams.delete(key);
+  if (hasKeepQueryParameters && options.keepQueryParameters.length > 0) {
+    for (const key of [...searchParams.keys()]) {
+      if (!testParameter(decodeReservedTokens(key, encodedReservedTokenRegex), options.keepQueryParameters)) {
+        searchParams.delete(key);
       }
     }
+  } else if (hasKeepQueryParameters) {
+    urlObject.search = "";
   }
   if (options.sortQueryParameters) {
-    const originalSearch = urlObject.search;
-    urlObject.searchParams.sort();
-    try {
-      urlObject.search = decodeURIComponent(urlObject.search);
-    } catch {
-    }
-    const partsWithoutEquals = originalSearch.slice(1).split("&").filter((p) => p && !p.includes("="));
-    for (const part of partsWithoutEquals) {
-      const decoded = decodeURIComponent(part);
-      urlObject.search = urlObject.search.replace(`?${decoded}=`, `?${decoded}`).replace(`&${decoded}=`, `&${decoded}`);
+    urlObject.search = sortSearchParameters(urlObject.searchParams, encodedReservedTokenRegex);
+    urlObject.search = decodeURIComponent(urlObject.search.replaceAll(/%(?:26|23|3f|25|2b)/gi, (match) => `%25${match.slice(1)}`));
+    if (encodedReservedTokenRegex) {
+      urlObject.search = urlObject.search.replace(encodedReservedTokenRegex, "%$1");
     }
   }
+  urlObject.search = normalizeEmptyQueryParameters(urlObject.search, options.emptyQueryValue, originalSearch);
   if (options.removeTrailingSlash) {
     urlObject.pathname = urlObject.pathname.replace(/\/$/, "");
   }
